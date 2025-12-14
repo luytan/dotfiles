@@ -11,6 +11,8 @@
       rebuild = "sudo nixos-rebuild switch --flake ~/Documents/NixOS/dotfiles#glaceon";
       upd = "nix flake update --flake ~/Documents/NixOS/dotfiles";
       clean = "nix-collect-garbage -d";
+      cd = "z";
+      cls = "clear";
     };
   };
 }

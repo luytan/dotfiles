@@ -30,6 +30,8 @@
     mangohud
     gamescope
     jdk
+    jq
+    lstr
     fastfetch
     ghidra-bin
     gcc

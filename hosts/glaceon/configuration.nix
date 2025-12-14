@@ -12,6 +12,7 @@
     ../../modules/common/fonts.nix
     ../../modules/hardware/asusctl.nix
     ../../modules/hardware/razer.nix
+    ../../modules/hardware/audio.nix
     ../../modules/services/tuned.nix
     ../../modules/services/cpu-boost.nix
     ../../modules/common/bluetooth.nix
@@ -115,12 +116,6 @@
   # Services
   services.printing.enable = true;
   services.flatpak.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-  };
   services.libinput.enable = true;
 
   # Users

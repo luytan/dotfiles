@@ -1,39 +1,44 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./disko-config.nix
-      ../../modules/common/fonts.nix
-      ../../modules/services/asusctl.nix
-      ../../modules/services/tuned.nix
-      ../../modules/services/cpu-boost.nix
-      ../../modules/common/bluetooth.nix
-      ../../modules/containers/podman.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./disko-config.nix
+    ../../modules/common/fonts.nix
+    ../../modules/hardware/asusctl.nix
+    ../../modules/hardware/razer.nix
+    ../../modules/services/tuned.nix
+    ../../modules/services/cpu-boost.nix
+    ../../modules/common/bluetooth.nix
+    ../../modules/containers/podman.nix
+  ];
 
   # Bootloader & Kernel
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
   services.system76-scheduler.enable = true;
-    # AMD Microcode
+  # AMD Microcode
   hardware.cpu.amd.updateMicrocode = true;
   # Plymouth
   boot.plymouth = {
-      enable = true;
-      theme = "bgrt";
+    enable = true;
+    theme = "bgrt";
   };
   boot.consoleLogLevel = 3;
   hardware.enableAllFirmware = true;
   boot.initrd.verbose = false;
   boot.kernelParams = [
-      "video=2560x1600@120"
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "udev.log_priority=3"
-      "rd.systemd.show_status=auto"
+    "video=2560x1600@120"
+    "quiet"
+    "splash"
+    "boot.shell_on_fail"
+    "udev.log_priority=3"
+    "rd.systemd.show_status=auto"
   ];
   boot.loader.timeout = 0;
 
@@ -46,7 +51,7 @@
 
   # Networking & Time
   networking.hostName = "glaceon";
-  networking.networkmanager = { 
+  networking.networkmanager = {
     enable = true;
     wifi.macAddress = "random";
   };
@@ -74,8 +79,16 @@
     dates = "weekly";
   };
   nix.settings.auto-optimise-store = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
+  # IOS
+  services.usbmuxd = {
+    enable = true;
+    package = pkgs.usbmuxd2;
+  };
 
   # Desktop Environment
   ## KDE Plasma
@@ -93,8 +106,8 @@
 
   # Virtualization
   virtualisation.libvirtd = {
-      enable = true;
-      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    enable = true;
+    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
   };
   virtualisation.vmware.host.enable = true;
   programs.virt-manager.enable = true;
@@ -113,9 +126,13 @@
   # Users
   users.users.luytan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "dialout" "libvirtd" ]; 
+    extraGroups = [
+      "wheel"
+      "dialout"
+      "libvirtd"
+    ];
     packages = with pkgs; [
-      vmware-workstation 
+      vmware-workstation
     ];
   };
 
@@ -127,6 +144,7 @@
     wget
     tpm2-tss
     linux-firmware
+    libimobiledevice
   ];
   programs.mtr.enable = true;
   programs.gnupg.agent = {
@@ -142,5 +160,5 @@
     memoryPercent = 300;
   };
 
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
 }

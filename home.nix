@@ -28,6 +28,7 @@
     code-cursor
     steam
     mangohud
+    unzip
     gamescope
     jdk
     jq

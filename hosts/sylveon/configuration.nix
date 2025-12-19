@@ -16,6 +16,7 @@
     ../../modules/containers/podman.nix
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/quadcast.nix
+    ../../modules/common/virtualization.nix
   ];
 
   # Bootloader & Kernel
@@ -103,13 +104,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # Virtualization
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
-  };
-  virtualisation.vmware.host.enable = true;
-  programs.virt-manager.enable = true;
+
 
   # Services
   services.printing.enable = true;
@@ -123,9 +118,6 @@
       "wheel"
       "dialout"
       "libvirtd"
-    ];
-    packages = with pkgs; [
-      vmware-workstation
     ];
   };
 

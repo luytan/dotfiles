@@ -14,6 +14,7 @@
     ./modules/editors/vscode.nix
     ./modules/cli/eza.nix
     ./modules/cli/zellij.nix
+    ./modules/common/discord.nix
   ];
   #programs.ssh = {
   #  enable = true;
@@ -41,7 +42,6 @@
     wl-clipboard
     btop
     obsidian
-    discord-canary
     htop
     eza
     mission-center

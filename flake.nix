@@ -47,5 +47,29 @@
         })
       ];
     };
+    nixosConfigurations.sylveon = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/sylveon/configuration.nix
+        
+        disko.nixosModules.disko
+        lanzaboote.nixosModules.lanzaboote
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.luytan = import ./home.nix;
+        }
+
+        ({ pkgs, lib, ... }: {
+          boot.loader.systemd-boot.enable = lib.mkForce false;
+          boot.lanzaboote = {
+            enable = true;
+            pkiBundle = "/var/lib/sbctl";
+          };
+          environment.systemPackages = [ pkgs.sbctl ];
+        })
+      ];
+    };
   };
 }

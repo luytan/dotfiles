@@ -8,8 +8,7 @@
       zoxide init fish | source
     '';
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/Documents/NixOS/dotfiles#glaceon";
-      rebuild-sylv = "sudo nixos-rebuild switch --flake ~/Documents/NixOS/dotfiles#sylveon";
+      rebuild = "sudo nixos-rebuild switch --flake ~/Documents/NixOS/dotfiles#$(hostname)";
       upd = "nix flake update --flake ~/Documents/NixOS/dotfiles";
       clean = "nix-collect-garbage -d";
       cd = "z";

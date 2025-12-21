@@ -26,6 +26,7 @@
   # AMD Microcode
   hardware.cpu.amd.updateMicrocode = true;
   boot.kernelPackages = pkgs.linuxPackages_6_17;
+  boot.blacklistedKernelModules = [ "nouveau" "nova" "nova_core" "nova-drm" ];
   # Plymouth
   boot.plymouth = {
     enable = true;
@@ -128,6 +129,7 @@
     virt-what
     wget
     tpm2-tss
+    gparted
     linux-firmware
     libimobiledevice
   ];

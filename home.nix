@@ -15,6 +15,7 @@
     ./modules/cli/eza.nix
     ./modules/cli/zellij.nix
     ./modules/common/discord.nix
+    ./modules/gaming/steam.nix
   ];
   #programs.ssh = {
   #  enable = true;
@@ -27,10 +28,9 @@
   home.packages = with pkgs; [
     #Packages
     code-cursor
-    steam
+    efibootmgr
     mangohud
     unzip
-    gamescope
     jdk
     jq
     lstr
@@ -46,7 +46,7 @@
     eza
     mission-center
     bat
-    nvtopPackages.amd
+    nvtopPackages.full
     tldr
     yazi
     fzf

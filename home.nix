@@ -15,7 +15,6 @@
     ./modules/cli/eza.nix
     ./modules/cli/zellij.nix
     ./modules/common/discord.nix
-    ./modules/gaming/steam.nix
   ];
   #programs.ssh = {
   #  enable = true;

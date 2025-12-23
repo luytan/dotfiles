@@ -17,6 +17,7 @@
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/quadcast.nix
     ../../modules/common/virtualization.nix
+
   ];
 
   # Bootloader & Kernel
@@ -74,6 +75,7 @@
     enable32Bit = true;
   };
   services.tailscale.enable = true;
+  services.seatd.enable = true;
   # Nix Settings
   nix.gc = {
     automatic = true;
@@ -125,6 +127,7 @@
   # Programs
   programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
+    mangohud
     vim
     virt-what
     wget
@@ -137,6 +140,13 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+  programs.steam= {
+    enable = true;
   };
   nix.settings.allowed-users = [ "@wheel" ];
 

@@ -20,9 +20,13 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, lanzaboote, disko, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, lanzaboote, disko, home-manager, spicetify-nix, ... }: {
     nixosConfigurations.glaceon = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -34,6 +38,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.luytan = import ./home.nix;
         }
 
@@ -58,6 +63,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.luytan = import ./home.nix;
         }
 

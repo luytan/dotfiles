@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "luytan";
@@ -15,6 +15,8 @@
     ./modules/cli/eza.nix
     ./modules/cli/zellij.nix
     ./modules/common/discord.nix
+    ./modules/media/spotify.nix
+    inputs.spicetify-nix.homeManagerModules.default
   ];
   #programs.ssh = {
   #  enable = true;

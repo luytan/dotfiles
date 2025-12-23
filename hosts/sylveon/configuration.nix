@@ -27,7 +27,12 @@
   # AMD Microcode
   hardware.cpu.amd.updateMicrocode = true;
   boot.kernelPackages = pkgs.linuxPackages_6_17;
-  boot.blacklistedKernelModules = [ "nouveau" "nova" "nova_core" "nova-drm" ];
+  boot.blacklistedKernelModules = [
+    "nouveau"
+    "nova"
+    "nova_core"
+    "nova-drm"
+  ];
   # Plymouth
   boot.plymouth = {
     enable = true;
@@ -107,8 +112,6 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-
-
   # Services
   services.printing.enable = true;
   services.flatpak.enable = true;
@@ -145,10 +148,14 @@
     enable = true;
     capSysNice = true;
   };
-  programs.steam= {
+  programs.steam = {
     enable = true;
   };
   nix.settings.allowed-users = [ "@wheel" ];
+  environment = {
+    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
 
   # Zram
   zramSwap = {

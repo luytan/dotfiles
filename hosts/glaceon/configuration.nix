@@ -17,6 +17,7 @@
     ../../modules/services/cpu-boost.nix
     ../../modules/common/bluetooth.nix
     ../../modules/containers/podman.nix
+    ../../modules/services/nh.nix
   ];
 
   # Bootloader & Kernel
@@ -75,11 +76,6 @@
   hardware.amdgpu.initrd.enable = true;
   services.tailscale.enable = true;
   # Nix Settings
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d"; 
-  };
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [
     "nix-command"

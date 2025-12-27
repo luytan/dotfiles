@@ -9,23 +9,24 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
-    ../../modules/common/fonts.nix
-    ../../modules/hardware/razer.nix
-    ../../modules/hardware/audio.nix
-    ../../modules/common/bluetooth.nix
-    ../../modules/containers/podman.nix
-    ../../modules/hardware/nvidia.nix
-    ../../modules/hardware/quadcast.nix
-    ../../modules/common/virtualization.nix
+    ../../modules/system/core/common.nix
+    ../../modules/system/common/fonts.nix
+    ../../modules/system/hardware/razer.nix
+    ../../modules/system/hardware/audio.nix
+    ../../modules/system/common/bluetooth.nix
+    ../../modules/system/containers/podman.nix
+    ../../modules/system/hardware/nvidia.nix
+    ../../modules/system/hardware/quadcast.nix
+    ../../modules/system/common/virtualization.nix
+    ../../modules/system/gaming
 
   ];
 
   # Bootloader & Kernel
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.systemd.enable = true;
-  services.system76-scheduler.enable = true;
+
   # AMD Microcode
-  hardware.cpu.amd.updateMicrocode = true;
+  # AMD Microcode moved to common
+
   boot.kernelPackages = pkgs.linuxPackages_6_17;
   boot.blacklistedKernelModules = [
     "nouveau"
@@ -34,12 +35,10 @@
     "nova-drm"
   ];
   # Plymouth
-  boot.plymouth = {
-    enable = true;
-    theme = "bgrt";
-  };
+  # Plymouth moved to common
+
   boot.consoleLogLevel = 3;
-  hardware.enableAllFirmware = true;
+
   boot.initrd.verbose = false;
   boot.kernelParams = [
     "quiet"
@@ -63,15 +62,7 @@
     enable = true;
     wifi.macAddress = "random";
   };
-  time.timeZone = "Europe/Paris";
 
-  # i18n & Console
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
-    keyMap = "us";
-    earlySetup = true;
-  };
   systemd.services.systemd-vconsole-setup.unitConfig.After = "local-fs.target";
 
   # Hardware & Graphics
@@ -86,12 +77,8 @@
     automatic = true;
     dates = "weekly";
   };
-  nix.settings.auto-optimise-store = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nixpkgs.config.allowUnfree = true;
+  # Nix Settings moved to common
+
   # IOS
   services.usbmuxd = {
     enable = true;
@@ -113,9 +100,7 @@
   };
 
   # Services
-  services.printing.enable = true;
-  services.flatpak.enable = true;
-  services.libinput.enable = true;
+  # Services moved to common
 
   # Users
   users.users.luytan = {
@@ -127,30 +112,9 @@
     ];
   };
 
-  # Programs
-  programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
-    mangohud
-    vim
-    virt-what
-    wget
-    tpm2-tss
     gparted
-    linux-firmware
-    libimobiledevice
   ];
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true;
-  };
-  programs.steam = {
-    enable = true;
-  };
   nix.settings.allowed-users = [ "@wheel" ];
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";

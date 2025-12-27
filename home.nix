@@ -1,21 +1,29 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.username = "luytan";
   home.homeDirectory = "/home/luytan";
   home.stateVersion = "25.11";
   imports = [
-    ./modules/cli/fish.nix
-    ./modules/cli/git.nix
-    ./modules/cli/gpg.nix
-    ./modules/cli/zoxide.nix
-    ./modules/editors/zed.nix
-    ./modules/cli/ghostty.nix
-    ./modules/editors/vscode.nix
-    ./modules/cli/eza.nix
-    ./modules/cli/zellij.nix
-    ./modules/common/discord.nix
-    ./modules/media/spotify.nix
+    ./modules/home/cli/fish.nix
+    ./modules/home/cli/git.nix
+    ./modules/home/cli/gpg.nix
+    ./modules/home/cli/zoxide.nix
+    ./modules/home/editors/zed.nix
+    ./modules/home/cli/ghostty.nix
+    ./modules/home/editors/vscode.nix
+    ./modules/home/cli/eza.nix
+    ./modules/home/cli/zellij.nix
+    ./modules/home/common/discord.nix
+    ./modules/home/media/spotify.nix
+    ./modules/home/media/spotify.nix
+    ./modules/home/cli/gemini.nix
+    ./modules/home/packages.nix
     inputs.spicetify-nix.homeManagerModules.default
   ];
   #programs.ssh = {
@@ -26,42 +34,6 @@
   #  '';
   #};
 
-  home.packages = with pkgs; [
-    #Packages
-    code-cursor
-    efibootmgr
-    mangohud
-    unzip
-    jdk
-    jq
-    lstr
-    fastfetch
-    ghidra-bin
-    gcc
-    gdb
-    rsync
-    wl-clipboard
-    btop
-    obsidian
-    htop
-    eza
-    mission-center
-    bat
-    nvtopPackages.full
-    tldr
-    yazi
-    fzf
-    ripgrep
-    filen-desktop
-    neovim
-    nixfmt
-    nil
-    nixd
-    rustc
-    cargo
-    file
-    python3
-  ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {

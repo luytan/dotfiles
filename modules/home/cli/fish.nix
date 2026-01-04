@@ -8,11 +8,13 @@
       zoxide init fish | source
     '';
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/Documents/NixOS/dotfiles#$(hostname)";
+      rebuild = "nh os switch -H $(hostname)";
       upd = "nix flake update --flake ~/Documents/NixOS/dotfiles";
       clean = "nix-collect-garbage -d";
       cd = "z";
       cls = "clear";
+      cat = "bat";
+      tree = "eza --tree --level=3";
     };
   };
 }

@@ -19,6 +19,7 @@
     ../../modules/system/hardware/quadcast.nix
     ../../modules/system/common/virtualization.nix
     ../../modules/system/gaming
+    ../../modules/system/services/nh.nix
 
   ];
 
@@ -28,12 +29,6 @@
   # AMD Microcode moved to common
 
   boot.kernelPackages = pkgs.linuxPackages_6_17;
-  boot.blacklistedKernelModules = [
-    "nouveau"
-    "nova"
-    "nova_core"
-    "nova-drm"
-  ];
   # Plymouth
   # Plymouth moved to common
 
@@ -72,12 +67,6 @@
   };
   services.tailscale.enable = true;
   services.seatd.enable = true;
-  # Nix Settings
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-  };
-  # Nix Settings moved to common
 
   # IOS
   services.usbmuxd = {

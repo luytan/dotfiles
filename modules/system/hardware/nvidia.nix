@@ -36,4 +36,10 @@
     MOZ_DISABLE_RDD_SANDBOX = "1";
     LIBVA_DRIVER_NAME = "nvidia";
   };
+    boot.blacklistedKernelModules = [
+    "nouveau"
+    "nova"
+    "nova_core"
+    "nova-drm"
+  ];
 }

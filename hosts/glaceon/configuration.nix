@@ -19,6 +19,7 @@
     ../../modules/system/common/bluetooth.nix
     ../../modules/system/containers/podman.nix
     ../../modules/system/services/nh.nix
+    ../../modules/system/gaming
     ../../modules/system/common/virtualization.nix
   ];
 
@@ -26,6 +27,7 @@
 
   # AMD Microcode
   # AMD Microcode moved to common
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   # Plymouth moved to common
 

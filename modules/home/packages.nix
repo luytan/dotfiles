@@ -25,6 +25,11 @@
     cargo
     file
     python3
+    ansible
+    kubectl
+    k9s
+    helm
+    terraform
 
     # Utils
     efibootmgr
@@ -40,5 +45,6 @@
     obsidian
     mission-center
     filen-desktop
+    freelens-bin
   ];
 }

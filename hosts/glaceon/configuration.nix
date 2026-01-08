@@ -21,6 +21,7 @@
     ../../modules/system/services/nh.nix
     ../../modules/system/gaming
     ../../modules/system/common/virtualization.nix
+    ../../modules/system/hardware/network.nix
   ];
 
   # Bootloader & Kernel

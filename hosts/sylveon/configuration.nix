@@ -28,7 +28,7 @@
   # AMD Microcode
   # AMD Microcode moved to common
 
-  boot.kernelPackages = pkgs.linuxPackages_6_17;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
   # Plymouth
   # Plymouth moved to common
 

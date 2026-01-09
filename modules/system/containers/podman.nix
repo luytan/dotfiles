@@ -13,6 +13,7 @@
     dive
     podman-tui
     docker-compose
+    distrobox
     podman-compose
   ];
 }

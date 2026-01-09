@@ -1,9 +1,17 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   programs.gemini-cli = {
     enable = true;
+
     settings = {
-      "preferredEditor" = "vim";
+      general = {
+        preferredEditor = "vim";
+      };
+      security = {
+        auth = {
+          selectedType = "oauth-personal";
+        };
+      };
     };
   };
 }

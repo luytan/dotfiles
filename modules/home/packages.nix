@@ -30,6 +30,8 @@
     k9s
     helm
     terraform
+    gnumake
+    cmake
 
     # Utils
     efibootmgr

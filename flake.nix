@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-instable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     
     # Home Manager
     home-manager = {
@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, lanzaboote, disko, home-manager, spicetify-nix, ... }: {
+  outputs = inputs@{ self, nixpkgs, lanzaboote, nixpkgs-unstable, disko, home-manager, spicetify-nix, ... }: {
     nixosConfigurations.glaceon = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -38,7 +38,13 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          };
           home-manager.users.luytan = import ./home.nix;
         }
 
@@ -63,7 +69,13 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          };
           home-manager.users.luytan = import ./home.nix;
         }
 

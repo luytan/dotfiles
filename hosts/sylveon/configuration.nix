@@ -20,6 +20,7 @@
     ../../modules/system/virtualization
     ../../modules/system/gaming
     ../../modules/system/sysctl
+    ../../modules/system/hardware/zram.nix
     ../../modules/system/services/nh.nix
 
   ];
@@ -93,21 +94,10 @@
     vmware = true;
   };
 
-  #
-  environment.systemPackages = with pkgs; [
-    gparted
-  ];
-  nix.settings.allowed-users = [ "@wheel" ];
+
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
     sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  };
-
-  # Zram
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 300;
   };
 
   system.stateVersion = "25.11";

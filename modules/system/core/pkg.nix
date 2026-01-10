@@ -13,5 +13,6 @@
     tpm2-tss
     linux-firmware
     libimobiledevice
+    gparted
   ];
 }

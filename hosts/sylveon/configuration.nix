@@ -9,7 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
-    ../../modules/system/core/common.nix
+    ../../modules/system/core
     ../../modules/system/common/fonts.nix
     ../../modules/system/hardware/razer.nix
     ../../modules/system/hardware/audio.nix
@@ -17,21 +17,11 @@
     ../../modules/system/containers/podman.nix
     ../../modules/system/hardware/nvidia.nix
     ../../modules/system/hardware/quadcast.nix
-    ../../modules/system/common/virtualization.nix
+    ../../modules/system/virtualization
     ../../modules/system/gaming
     ../../modules/system/services/nh.nix
 
   ];
-
-  # Bootloader & Kernel
-
-  # AMD Microcode
-  # AMD Microcode moved to common
-
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
-  # Plymouth
-  # Plymouth moved to common
-
   boot.consoleLogLevel = 3;
 
   boot.initrd.verbose = false;
@@ -57,9 +47,6 @@
     enable = true;
     wifi.macAddress = "random";
   };
-
-  systemd.services.systemd-vconsole-setup.unitConfig.After = "local-fs.target";
-
   # Hardware & Graphics
   hardware.graphics = {
     enable = true;
@@ -101,10 +88,17 @@
     ];
   };
   # Gaming
-  options.modules.gaming = {
+  modules.gaming = {
     enable = true;
     gamescope = false; #nvidia
-  }
+  };
+  
+  # Virtualization
+  modules.virtualization = {
+    kvm = true;
+    vmware = true;
+  };
+
   #
   environment.systemPackages = with pkgs; [
     gparted

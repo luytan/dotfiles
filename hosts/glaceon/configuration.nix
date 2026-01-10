@@ -9,7 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
-    ../../modules/system/core/common.nix
+    ../../modules/system/core
     ../../modules/system/common/fonts.nix
     ../../modules/system/hardware/asusctl.nix
     ../../modules/system/hardware/razer.nix
@@ -20,18 +20,9 @@
     ../../modules/system/containers/podman.nix
     ../../modules/system/services/nh.nix
     ../../modules/system/gaming
-    ../../modules/system/common/virtualization.nix
+    ../../modules/system/virtualization
     ../../modules/system/hardware/network.nix
   ];
-
-  # Bootloader & Kernel
-
-  # AMD Microcode
-  # AMD Microcode moved to common
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
-
-  # Plymouth moved to common
-
   boot.consoleLogLevel = 3;
 
   boot.initrd.verbose = false;
@@ -58,9 +49,6 @@
     enable = true;
     wifi.macAddress = "random";
   };
-
-  systemd.services.systemd-vconsole-setup.unitConfig.After = "local-fs.target";
-
   # Hardware & Graphics
   hardware.graphics = {
     enable = true;
@@ -89,13 +77,15 @@
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
-
-  # Virtualization
-  virtualisation.libvirtd = {
+  modules.gaming = {
     enable = true;
-
+    gamescope = true;
   };
-  virtualisation.vmware.host.enable = true;
+  # Virtualization
+  modules.virtualization = {
+    kvm = true;
+    vmware = true;
+  };
   programs.virt-manager.enable = true;
 
   # Services

@@ -1,8 +1,14 @@
-{ ... }:
-
+{ config, lib, ... }:
+let
+  cfg = config.modules.hardware.asusctl;
+in
 {
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
+  options.modules.hardware.asusctl.enable = lib.mkEnableOption "asusctl";
+
+  config = lib.mkIf cfg.enable {
+    services.asusd = {
+      enable = true;
+      enableUserService = true;
+    };
   };
 }

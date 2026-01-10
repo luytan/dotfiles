@@ -11,19 +11,18 @@
     ./disko-config.nix
     ../../modules/system/core
     ../../modules/system/common/fonts.nix
-    ../../modules/system/hardware/razer.nix
-    ../../modules/system/hardware/audio.nix
+    ../../modules/system/hardware
     ../../modules/system/common/bluetooth.nix
-    ../../modules/system/containers/podman.nix
-    ../../modules/system/hardware/nvidia.nix
-    ../../modules/system/hardware/quadcast.nix
+    ../../modules/system/containers
     ../../modules/system/virtualization
     ../../modules/system/gaming
     ../../modules/system/sysctl
-    ../../modules/system/hardware/zram.nix
-    ../../modules/system/services/nh.nix
-
+    ../../modules/system/services
   ];
+
+  modules.hardware.nvidia.enable = true;
+  modules.hardware.quadcast.enable = true;
+  modules.hardware.razer.enable = true;
   boot.consoleLogLevel = 3;
 
   boot.initrd.verbose = false;
@@ -36,12 +35,9 @@
   ];
   boot.loader.timeout = 0;
 
-  # Networking & Time
+  # Hostname
   networking.hostName = "sylveon";
-  networking.networkmanager = {
-    enable = true;
-    wifi.macAddress = "random";
-  };
+
   # Hardware & Graphics
   hardware.graphics = {
     enable = true;

@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
+  cfg = config.modules.hardware.quadcast;
   quadcastrgb = pkgs.stdenv.mkDerivation rec {
     pname = "quadcastrgb";
     version = "git";
@@ -25,5 +26,10 @@ let
   };
 in
 {
-  environment.systemPackages = [ quadcastrgb ];
+  options.modules.hardware.quadcast.enable = lib.mkEnableOption "quadcast";
+
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ quadcastrgb ];
+    services.udev.packages = [ quadcastrgb ];
+  };
 }

@@ -1,8 +1,14 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.modules.services.cpu-boost;
+in
 {
-  # I hate cpu boost
-  systemd.services.force-disable-boost = {
-    description = "Force disable CPU Boost";
+  options.modules.services.cpu-boost.enable = lib.mkEnableOption "cpu-boost";
+
+  config = lib.mkIf cfg.enable {
+    # I hate cpu boost
+    systemd.services.force-disable-boost = {
+      description = "Force disable CPU Boost";
     after = [ "tuned.service" "multi-user.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
@@ -18,5 +24,6 @@
         echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
       fi
     '';
+  };
   };
 }

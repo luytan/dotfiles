@@ -11,19 +11,19 @@
     ./disko-config.nix
     ../../modules/system/core
     ../../modules/system/common/fonts.nix
-    ../../modules/system/hardware/asusctl.nix
-    ../../modules/system/hardware/razer.nix
-    ../../modules/system/hardware/audio.nix
-    ../../modules/system/services/tuned.nix
-    ../../modules/system/services/cpu-boost.nix
+    ../../modules/system/hardware
+    ../../modules/system/services
     ../../modules/system/common/bluetooth.nix
-    ../../modules/system/containers/podman.nix
-    ../../modules/system/services/nh.nix
+    ../../modules/system/containers
     ../../modules/system/gaming
     ../../modules/system/virtualization
     ../../modules/system/sysctl
-    ../../modules/system/hardware/network.nix
   ];
+
+  modules.hardware.asusctl.enable = true;
+  modules.hardware.razer.enable = true;
+  modules.services.tuned.enable = true;
+  modules.services.cpu-boost.enable = true;
   boot.consoleLogLevel = 3;
 
   boot.initrd.verbose = false;
@@ -37,12 +37,8 @@
   ];
   boot.loader.timeout = 0;
 
-  # Networking & Time
+  # Hostname
   networking.hostName = "glaceon";
-  networking.networkmanager = {
-    enable = true;
-    wifi.macAddress = "random";
-  };
   # Hardware & Graphics
   hardware.graphics = {
     enable = true;

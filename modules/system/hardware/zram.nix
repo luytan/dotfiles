@@ -1,8 +1,17 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  cfg = config.modules.hardware.zram;
+in
 {
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 300;
+  options.modules.hardware.zram.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+  };
+
+  config = lib.mkIf cfg.enable {
+    zramSwap = {
+      enable = true;
+      algorithm = "zstd";
+    };
   };
 }

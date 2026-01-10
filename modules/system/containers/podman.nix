@@ -1,19 +1,29 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.modules.containers.podman;
+in
 {
-  virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
+  options.modules.containers.podman.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    dive
-    podman-tui
-    docker-compose
-    distrobox
-    podman-compose
-  ];
+  config = lib.mkIf cfg.enable {
+    virtualisation.containers.enable = true;
+    virtualisation = {
+      podman = {
+        enable = true;
+        dockerCompat = true;
+        defaultNetwork.settings.dns_enabled = true;
+      };
+    };
+
+    environment.systemPackages = with pkgs; [
+      dive
+      podman-tui
+      docker-compose
+      distrobox
+      podman-compose
+    ];
+  };
 }

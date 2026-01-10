@@ -100,7 +100,12 @@
       "libvirtd"
     ];
   };
-
+  # Gaming
+  options.modules.gaming = {
+    enable = true;
+    gamescope = false; #nvidia
+  }
+  #
   environment.systemPackages = with pkgs; [
     gparted
   ];

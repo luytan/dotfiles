@@ -21,6 +21,7 @@
     ../../modules/system/services/nh.nix
     ../../modules/system/gaming
     ../../modules/system/virtualization
+    ../../modules/system/sysctl
     ../../modules/system/hardware/network.nix
   ];
   boot.consoleLogLevel = 3;
@@ -35,13 +36,6 @@
     "rd.systemd.show_status=auto"
   ];
   boot.loader.timeout = 0;
-
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 180;
-    "vm.watermark_boost_factor" = 0;
-    "vm.watermark_scale_factor" = 125;
-    "vm.page-cluster" = 0;
-  };
 
   # Networking & Time
   networking.hostName = "glaceon";

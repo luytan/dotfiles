@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./wallpaper-engine-kde-plugin.nix
+    ./wallpaper-engine.nix
   ];
 
   options.nixos = {

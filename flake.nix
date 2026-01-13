@@ -21,105 +21,87 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # TODO: get rid of spotify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nixpkgs,
-      lanzaboote,
       nixpkgs-unstable,
       nixpkgs-cisco,
-      disko,
       home-manager,
-      spicetify-nix,
+      lanzaboote,
+      disko,
       ...
-    }:
-    {
-      nixosConfigurations.glaceon = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/glaceon/configuration.nix
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
 
-          disko.nixosModules.disko
-          lanzaboote.nixosModules.lanzaboote
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              pkgs-unstable = import nixpkgs-unstable {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
-              pkgs-cisco = import nixpkgs-cisco {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
-            };
-            home-manager.users.luytan = import ./home.nix;
-          }
-
-          (
-            { pkgs, lib, ... }:
-            {
-              boot.loader.systemd-boot.enable = lib.mkForce false;
-              boot.lanzaboote = {
-                enable = true;
-                pkiBundle = "/var/lib/sbctl";
-              };
-              environment.systemPackages = [ pkgs.sbctl ];
-            }
-          )
-        ];
+      # other pkgs
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
       };
-      nixosConfigurations.sylveon = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/sylveon/configuration.nix
+      pkgs-cisco = import nixpkgs-cisco {
+        inherit system;
+        config.allowUnfree = true;
+      };
 
-          disko.nixosModules.disko
-          lanzaboote.nixosModules.lanzaboote
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              pkgs-unstable = import nixpkgs-unstable {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
-              pkgs-cisco = import nixpkgs-cisco {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
-            };
-            home-manager.users.luytan = import ./home.nix;
-          }
+      # Configuration 
+      mkSystem =
+        host:
+        lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/${host}/configuration.nix
 
-          (
-            { pkgs, lib, ... }:
+            disko.nixosModules.disko
+            lanzaboote.nixosModules.lanzaboote
+            home-manager.nixosModules.home-manager
+
             {
-              boot.loader.systemd-boot.enable = lib.mkForce false;
-              boot.lanzaboote = {
-                enable = true;
-                pkiBundle = "/var/lib/sbctl";
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs pkgs-unstable pkgs-cisco;
               };
-              environment.systemPackages = [ pkgs.sbctl ];
+              home-manager.users.luytan = import ./home.nix;
             }
-          )
-        ];
+
+            # Lanzaboote / Secure Boot configuration
+            (
+              { pkgs, lib, ... }:
+              {
+                boot.loader.systemd-boot.enable = lib.mkForce false;
+                boot.lanzaboote = {
+                  enable = true;
+                  pkiBundle = "/var/lib/sbctl";
+                };
+                environment.systemPackages = [ pkgs.sbctl ];
+              }
+            )
+          ];
+        };
+    in
+    {
+      nixosConfigurations = {
+        glaceon = mkSystem "glaceon";
+        sylveon = mkSystem "sylveon";
       };
     };
 }

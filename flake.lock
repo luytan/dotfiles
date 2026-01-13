@@ -189,6 +189,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768324464,
+        "narHash": "sha256-PMFWD8T8hmu8ki5RqJoBMV7R0G94sgrO0zplnLRsxh4=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "a6744f80b70bfe2a15b7b532b9116df63741f03f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -223,6 +243,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-cisco": "nixpkgs-cisco",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "noctalia": "noctalia",
         "spicetify-nix": "spicetify-nix"
       }
     },

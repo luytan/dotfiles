@@ -53,10 +53,6 @@
   };
 
   # Desktop Environment
-  ## KDE Plasma
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = true;
   ## Cosmic Desktop
   #services.desktopManager.cosmic.enable = true;
   #services.gnome.gnome-keyring.enable = true;

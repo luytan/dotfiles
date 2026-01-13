@@ -18,6 +18,7 @@
     ../../modules/system/gaming
     ../../modules/system/virtualization
     ../../modules/system/sysctl
+    ../../modules/system/desktop
   ];
 
   modules.hardware.asusctl.enable = true;
@@ -55,10 +56,7 @@
   };
 
   # Desktop Environment
-  ## KDE Plasma
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = true;
+
   ## Cosmic Desktop
   #services.desktopManager.cosmic.enable = true;
   #services.gnome.gnome-keyring.enable = true;
@@ -76,7 +74,9 @@
     kvm = true;
     vmware = true;
   };
-
+  modules.desktop = {
+    plasma = true;
+  };
   # Users
   users.users.luytan = {
     isNormalUser = true;

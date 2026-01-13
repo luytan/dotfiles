@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  pkgs-cisco,
   ...
 }:
 
@@ -14,18 +15,22 @@
     ./modules/home/cli/git.nix
     ./modules/home/cli/gpg.nix
     ./modules/home/cli/zoxide.nix
-    ./modules/home/editors/zed.nix
+    #./modules/home/editors/zed.nix
     ./modules/home/cli/ghostty.nix
     ./modules/home/editors/vscode.nix
     ./modules/home/cli/eza.nix
     ./modules/home/cli/zellij.nix
     ./modules/home/common/discord.nix
     ./modules/home/media/spotify.nix
-    ./modules/home/media/spotify.nix
     ./modules/home/cli/gemini.nix
-    ./modules/home/packages.nix
+    ./modules/home/default.nix
     inputs.spicetify-nix.homeManagerModules.default
   ];
+
+  home.packages = [
+    pkgs-cisco.ciscoPacketTracer9
+  ];
+
   #programs.ssh = {
   #  enable = true;
   #  extraConfig = ''

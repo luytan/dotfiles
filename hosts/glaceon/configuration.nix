@@ -76,10 +76,6 @@
     kvm = true;
     vmware = true;
   };
-  programs.virt-manager.enable = true;
-
-  # Services
-  # Services moved to common
 
   # Users
   users.users.luytan = {
@@ -89,21 +85,11 @@
       "dialout"
       "libvirtd"
     ];
-    packages = with pkgs; [
-      vmware-workstation
-    ];
   };
 
   # Programs
 
   nix.settings.allowed-users = [ "@wheel" ];
-
-  # Zram
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 300;
-  };
 
   system.stateVersion = "25.11";
 }

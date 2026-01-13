@@ -157,6 +157,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-cisco": {
+      "locked": {
+        "lastModified": 1768077865,
+        "narHash": "sha256-TJHS5AUoqZM3NqLx1loBX/Bcb53qvN8z7QyBNPpJcCU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "27f663484ea697bce2d4d536c90b7ed9e0d3d01e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/456650/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1768127708,
@@ -205,6 +221,7 @@
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-cisco": "nixpkgs-cisco",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "spicetify-nix": "spicetify-nix"
       }

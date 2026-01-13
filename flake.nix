@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-cisco.url = "github:NixOS/nixpkgs/pull/456650/head";
     
     # Home Manager
     home-manager = {
@@ -26,7 +27,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, lanzaboote, nixpkgs-unstable, disko, home-manager, spicetify-nix, ... }: {
+  outputs = inputs@{ self, nixpkgs, lanzaboote, nixpkgs-unstable, nixpkgs-cisco, disko, home-manager, spicetify-nix, ... }: {
     nixosConfigurations.glaceon = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -41,6 +42,10 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            pkgs-cisco = import nixpkgs-cisco {
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
@@ -72,6 +77,10 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            pkgs-cisco = import nixpkgs-cisco {
               system = "x86_64-linux";
               config.allowUnfree = true;
             };

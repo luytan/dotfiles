@@ -41,11 +41,7 @@
   # Hostname
   networking.hostName = "glaceon";
   # Hardware & Graphics
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-  hardware.amdgpu.initrd.enable = true;
+  modules.hardware.amdgpu.enable = true;
   services.tailscale.enable = true;
   # Nix Settings moved to common
 
@@ -76,6 +72,7 @@
   };
   modules.desktop = {
     plasma = true;
+    hyprland = true;
   };
   # Users
   users.users.luytan = {

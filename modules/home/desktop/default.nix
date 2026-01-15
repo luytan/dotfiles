@@ -5,15 +5,10 @@ let
 in
 {
   options.modules.desktop = {
-    plasma = mkEnableOption "plasma";
     hyprland = mkEnableOption "hyprland";
-    #hyprland = mkEnableOption "hyprland";
   };
 
   imports = [
-    ./plasma.nix
     ./hyprland.nix
-    ./pkgs
-    #./hyprland.nix
   ];
 }

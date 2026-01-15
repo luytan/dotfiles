@@ -24,6 +24,7 @@
     ./modules/home/media/spotify.nix
     ./modules/home/cli/gemini.nix
     ./modules/home/default.nix
+    ./modules/home/desktop
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
@@ -53,6 +54,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+  modules.desktop.hyprland = true;
   xdg = {
     enable = true;
   };

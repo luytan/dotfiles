@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./amdgpu.nix
     ./asusctl.nix
     ./audio.nix
     ./network.nix

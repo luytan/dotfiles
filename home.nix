@@ -25,6 +25,7 @@
     ./modules/home/cli/gemini.nix
     ./modules/home/default.nix
     ./modules/home/desktop
+    ./modules/home/editors
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
@@ -54,6 +55,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+  modules.editors.ekphos = true;
   modules.desktop.hyprland = true;
   xdg = {
     enable = true;

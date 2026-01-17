@@ -9,6 +9,7 @@
     '';
     shellAliases = {
       rebuild = "nh os switch -H $(hostname)";
+      rebuild-boot = "nh os boot -H $(hostname)";
       upd = "nix flake update --flake ~/Documents/NixOS/dotfiles";
       clean = "nix-collect-garbage -d";
       cd = "z";

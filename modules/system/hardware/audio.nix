@@ -21,11 +21,11 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
-      lowLatency = {
-        enable = true;
-        quantum = 64;
-        rate = 48000;
-      };
+      #lowLatency = {
+      #  enable = true;
+      #  quantum = 64;
+      #  rate = 48000;
+      #};
     };
     environment.systemPackages = with pkgs; [
       easyeffects

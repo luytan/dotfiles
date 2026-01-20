@@ -12,15 +12,16 @@
     ../../modules/system/core
     ../../modules/system/common/fonts.nix
     ../../modules/system/hardware
+    ../../modules/system/services
     ../../modules/system/common/bluetooth.nix
     ../../modules/system/containers
-    ../../modules/system/virtualization
     ../../modules/system/gaming
+    ../../modules/system/virtualization
     ../../modules/system/sysctl
-    ../../modules/system/services
+    ../../modules/system/desktop
   ];
 
-  modules.hardware.nvidia.enable = true;
+  modules.hardware.amdgpu.enable = true;
   modules.hardware.quadcast.enable = true;
   modules.hardware.razer.enable = true;
   boot.consoleLogLevel = 3;
@@ -51,6 +52,7 @@
     enable = true;
     package = pkgs.usbmuxd2;
   };
+  programs.firejail.enable = true;
 
   # Desktop Environment
   ## Cosmic Desktop
@@ -77,16 +79,19 @@
   # Gaming
   modules.gaming = {
     enable = true;
-    gamescope = false; #nvidia
+    gamescope = true; # nvidia
   };
-  
+
   # Virtualization
   modules.virtualization = {
     kvm = true;
     vmware = true;
   };
 
-
+  modules.desktop = {
+    plasma = true;
+    hyprland = false;
+  };
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
     sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";

@@ -26,6 +26,7 @@
     ./modules/home/default.nix
     ./modules/home/desktop
     ./modules/home/editors
+    ./modules/home/gaming
     inputs.spicetify-nix.homeManagerModules.default
   ];
 

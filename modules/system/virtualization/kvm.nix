@@ -12,5 +12,6 @@ in
     environment.systemPackages = with pkgs; [
       virt-what
     ];
+    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 }

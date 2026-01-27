@@ -24,6 +24,7 @@ in
       docker-compose
       distrobox
       podman-compose
+      podman-desktop
     ];
   };
 }

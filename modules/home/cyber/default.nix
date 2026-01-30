@@ -6,5 +6,6 @@
     wavemon
     nmap
     ghidra-bin
+    burpsuite
   ];
 }

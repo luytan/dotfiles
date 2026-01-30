@@ -21,4 +21,7 @@
     lstr
     neovim
   ];
+    imports = [
+    ./jetbrain.nix
+  ];
 }

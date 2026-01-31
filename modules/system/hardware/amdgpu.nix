@@ -26,10 +26,5 @@ in
         rocmPackages.clr.icd # OpenCL
       ];
     };
-
-    environment.systemPackages = with pkgs; [ lact ];
-    systemd.packages = with pkgs; [ lact ];
-    systemd.services.lactd.wantedBy = [ "multi-user.target" ];
-    hardware.amdgpu.overdrive.enable = true;
   };
 }

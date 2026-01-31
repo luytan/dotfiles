@@ -6,5 +6,6 @@
     ./tuned.nix
     ./snapper.nix
     ./tlp.nix
+    ./lact.nix
   ];
 }

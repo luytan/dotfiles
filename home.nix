@@ -21,13 +21,11 @@
     ./modules/home/cli/eza.nix
     ./modules/home/cli/zellij.nix
     ./modules/home/common/discord.nix
-    ./modules/home/media/spotify.nix
     ./modules/home/cli/gemini.nix
     ./modules/home/default.nix
     ./modules/home/desktop
     ./modules/home/editors
     ./modules/home/gaming
-    inputs.spicetify-nix.homeManagerModules.default
   ];
 
   home.packages = [

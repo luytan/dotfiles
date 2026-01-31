@@ -9,6 +9,5 @@ in
   };
 
   imports = [
-    ./hyprland.nix
   ];
 }

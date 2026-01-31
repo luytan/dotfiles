@@ -6,5 +6,6 @@
     ./dev
     ./gui
     ./utils
+    ./cli
   ];
 }

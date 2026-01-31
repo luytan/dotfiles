@@ -23,7 +23,8 @@
 
   modules.hardware.asusctl.enable = true;
   modules.hardware.razer.enable = true;
-  modules.services.tuned.enable = true;
+  modules.services.tuned.enable = false;
+  modules.services.tlp.enable = true;
   modules.services.cpu-boost.enable = true;
   boot.consoleLogLevel = 3;
 

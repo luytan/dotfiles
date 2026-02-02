@@ -20,5 +20,6 @@
     htop
     nvtopPackages.full
     efibootmgr
+    pwgen
   ];
 }

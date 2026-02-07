@@ -8,8 +8,6 @@
     gdb
     gnumake
     cmake
-    rustc
-    cargo
     ansible
     kubectl
     k9s
@@ -23,5 +21,6 @@
   ];
     imports = [
     ./jetbrain.nix
+    ./rust.nix
   ];
 }

@@ -1,5 +1,6 @@
-{ ... }:
+{ inputs, ... }:
 {
+  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   nix.settings.allowed-users = [ "@wheel" ];
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [

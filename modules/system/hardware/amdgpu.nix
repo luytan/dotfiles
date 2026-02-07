@@ -26,5 +26,17 @@ in
         rocmPackages.clr.icd # OpenCL
       ];
     };
+    boot.kernelParams = [
+      "amdgpu.dpm=1" # Enable dynamic power management
+      "pcie_aspm=force" # Force PCIe Active State Power Management
+    ];
+    
+    # Force the AMD GPU to auto-suspend
+    services.udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{device}=="0x73ef", ATTR{power/control}="auto"
+      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{device}=="0xab28", ATTR{power/control}="auto"
+    '';
+
+    hardware.amdgpu.initrd.enable = true;
   };
 }

@@ -31,6 +31,10 @@
       url = "github:hanebox/ekphos";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -58,7 +62,7 @@
         config.allowUnfree = true;
       };
 
-      # Configuration 
+      # Configuration
       mkSystem =
         host:
         lib.nixosSystem {
@@ -68,7 +72,6 @@
           };
           modules = [
             ./hosts/${host}/configuration.nix
-
             disko.nixosModules.disko
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager

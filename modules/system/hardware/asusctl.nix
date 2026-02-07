@@ -10,5 +10,6 @@ in
       enable = true;
       enableUserService = true;
     };
+    services.supergfxd.enable = false;
   };
 }

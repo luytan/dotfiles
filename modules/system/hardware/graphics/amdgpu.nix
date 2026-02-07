@@ -5,10 +5,13 @@
   ...
 }:
 let
-  cfg = config.modules.hardware.amdgpu;
+  cfg = config.modules.hardware.graphics.amdgpu;
 in
 {
-  options.modules.hardware.amdgpu.enable = lib.mkEnableOption "amdgpu";
+  options.modules.hardware.graphics.amdgpu.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+  };  
 
   config = lib.mkIf cfg.enable {
     boot.initrd.kernelModules = [ "amdgpu" ];

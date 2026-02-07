@@ -17,13 +17,11 @@
     ../../modules/system/containers
     ../../modules/system/gaming
     ../../modules/system/virtualization
-    ../../modules/system/sysctl
     ../../modules/system/desktop
   ];
 
-  modules.hardware.amdgpu.enable = false;
   modules.hardware.fingerprint.enable = true;
-  modules.hardware.intelgpu.enable = true;
+  modules.hardware.graphics.intel.enable = true;
   modules.hardware.quadcast.enable = false;
   modules.hardware.razer.enable = true;
   boot.consoleLogLevel = 3;

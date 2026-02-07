@@ -5,11 +5,13 @@
   ...
 }:
 let
-  cfg = config.modules.hardware.intelgpu;
+  cfg = config.modules.hardware.graphics.intel;
 in
 {
-  options.modules.hardware.intelgpu.enable = lib.mkEnableOption "intelgpu";
-
+  options.modules.hardware.graphics.intel.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+  };
   config = lib.mkIf cfg.enable {
     # XServer / generic video driver
     services.xserver.videoDrivers = [ "modesetting" ];

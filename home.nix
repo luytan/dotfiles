@@ -20,7 +20,7 @@
   ];
 
   home.packages = [
-    pkgs-cisco.ciscoPacketTracer9
+#    pkgs-cisco.ciscoPacketTracer9
   ];
   home.file = {
   };

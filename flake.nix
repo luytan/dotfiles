@@ -104,6 +104,7 @@
       nixosConfigurations = {
         glaceon = mkSystem "glaceon";
         sylveon = mkSystem "sylveon";
+        leafeon = mkSystem "leafeon";
       };
     };
 }

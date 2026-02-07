@@ -8,6 +8,8 @@
     ./quadcast.nix
     ./razer.nix
     ./zram.nix
+    ./intel.nix
+    ./fingerprint.nix
   ];
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";

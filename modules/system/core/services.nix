@@ -5,4 +5,5 @@
   services.libinput.enable = true;
   services.tailscale.enable = true;
   programs.firejail.enable = true;
+  services.fwupd.enable = true;
 }

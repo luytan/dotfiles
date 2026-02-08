@@ -31,7 +31,10 @@ in
         intel-vaapi-driver
       ];
     };
-    users.users.luytan.extraGroups = [ "video" "render" ];
+    users.users.luytan.extraGroups = [
+      "video"
+      "render"
+    ];
     hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
 }

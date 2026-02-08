@@ -10,6 +10,6 @@ let
 in
 {
   config = lib.mkIf cfg.ekphos {
-    home.packages = [ inputs.ekphos.packages.${pkgs.system}.default ];
+    home.packages = [ inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
 }

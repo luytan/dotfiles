@@ -20,7 +20,7 @@
     ../../modules/system/desktop
   ];
 
-  modules.hardware.fingerprint.enable = true;
+  modules.hardware.fingerprint.enable = false;
   modules.hardware.graphics.intel.enable = true;
   modules.hardware.quadcast.enable = false;
   modules.hardware.razer.enable = true;

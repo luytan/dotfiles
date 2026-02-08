@@ -1,17 +1,23 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   nix.settings.allowed-users = [ "@wheel" ];
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [
-
     "nix-command"
     "flakes"
   ];
+  nix.package = inputs.determinate.packages.${pkgs.stdenv.hostPlatform.system}.default;
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    lazy-trees = true;
+    eval-cores = 0;
+    extra-substituters = [
+      "https://lanzaboote.cachix.org"
+    ];
+    trusted-public-keys = [
+      "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
+    ];
   };
+
 }

@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-cisco.url = "github:NixOS/nixpkgs/pull/456650/head";
+    nixpkgs-plasma.url = "github:NixOS/nixpkgs/pull/479797/head";
 
     # Home Manager
     home-manager = {
@@ -13,7 +14,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.3";
+      url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -35,6 +36,7 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    determinate.url = "github:DeterminateSystems/nix-src";
   };
 
   outputs =
@@ -43,9 +45,11 @@
       nixpkgs,
       nixpkgs-unstable,
       nixpkgs-cisco,
+      nixpkgs-plasma,
       home-manager,
       lanzaboote,
       disko,
+      determinate,
       ...
     }@inputs:
     let
@@ -75,7 +79,6 @@
             disko.nixosModules.disko
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
-
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

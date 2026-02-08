@@ -14,8 +14,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+
     services.system76-scheduler.settings.cfsProfiles.enable = true;
     services.power-profiles-daemon.enable = false;
+    services.thermald.enable = config.hardware.cpu.intel.updateMicrocode;
     services.tlp = {
       enable = true;
       settings = {
@@ -32,6 +34,9 @@ in
         START_CHARGE_THRESH_BAT0 = 75;
         STOP_CHARGE_THRESH_BAT0 = 81;
         RUNTIME_PM_ON_AC = "auto";
+      } // lib.optionalAttrs (config.networking.hostName == "leafeon") {
+        # Specific to lenovo laptops
+        STOP_CHARGE_THRESH_BAT0 = 1;
       };
     };
   };

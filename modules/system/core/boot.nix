@@ -9,7 +9,14 @@
     initrd.systemd.enable = true;
     plymouth = {
       enable = true;
-      theme = "bgrt";
+      theme = "nixos-bgrt";
+      extraConfig = ''
+        UseFirmwareBackground=false
+      '';
+      themePackages = with pkgs; [
+        nixos-bgrt-plymouth
+      ];
+
     };
     tmp.useTmpfs = true;
   };

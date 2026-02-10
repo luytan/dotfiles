@@ -16,5 +16,6 @@ in
     ./gpg.nix
     ./zellij.nix
     ./zoxide.nix
+    ./fastfetch.nix
   ];
 }

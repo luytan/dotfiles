@@ -2,6 +2,7 @@
 {
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   nix.settings.allowed-users = [ "@wheel" ];
+  nix.settings.trusted-users = [ "luytan" "@wheel" ];
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [
     "nix-command"
@@ -14,9 +15,13 @@
     eval-cores = 0;
     extra-substituters = [
       "https://lanzaboote.cachix.org"
+      "https://vicinae.cachix.org"
+      "https://cache.flakehub.com"
     ];
-    trusted-public-keys = [
+    extra-trusted-public-keys = [
       "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
+      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+      "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
     ];
   };
 

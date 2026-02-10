@@ -6,7 +6,6 @@
   ];
 
   home.packages = with pkgs; [
-    fastfetch
     bat
     tldr
     yazi

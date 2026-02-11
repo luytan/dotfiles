@@ -47,6 +47,9 @@
     vicinae = {
       url = "github:vicinaehq/vicinae";
     };
+    lmstudio = {
+      url = "github:tomsch/lmstudio-nix";
+    };
   };
 
   outputs =

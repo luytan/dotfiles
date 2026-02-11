@@ -23,5 +23,6 @@
     imports = [
     ./jetbrain.nix
     ./rust.nix
+    ./lm-studio.nix
   ];
 }

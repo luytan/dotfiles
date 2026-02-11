@@ -17,7 +17,6 @@
     ../../modules/system/containers
     ../../modules/system/gaming
     ../../modules/system/virtualization
-    ../../modules/system/sysctl
     ../../modules/system/desktop
   ];
 

@@ -22,6 +22,8 @@
       "update.mode" = "manual";
       "extensions.autoUpdate" = "false";
       "git.confirmSync" = "false";
+      "editor.fontFamily" = "JetBrains Mono";
+      "editor.fontLigatures" = "true";
     };
   };
 }

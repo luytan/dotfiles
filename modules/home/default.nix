@@ -4,8 +4,11 @@
   imports = [
     ./cyber
     ./dev
-    ./gui
     ./utils
     ./cli
+    ./gaming
+    ./desktop
+    ./sysadmin
+    ./ai
   ];
 }

@@ -7,7 +7,7 @@
       catppuccin.catppuccin-vsc
       pkief.material-icon-theme
       jnoortheen.nix-ide
-      vscodevim.vim
+      #vscodevim.vim
       ms-azuretools.vscode-containers
       ms-python.python
       ms-vscode.cpptools
@@ -24,6 +24,7 @@
       "git.confirmSync" = "false";
       "editor.fontFamily" = "JetBrains Mono";
       "editor.fontLigatures" = "true";
+      "explorer.confirmDragAndDrop" = "false";
     };
   };
 }

@@ -10,5 +10,6 @@ in
 
   imports = [
     ./ekphos.nix
+    ./vscode.nix
   ];
 }

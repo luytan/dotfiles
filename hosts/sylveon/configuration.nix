@@ -20,7 +20,7 @@
     ../../modules/system/desktop
   ];
 
-  modules.hardware.amdgpu.enable = true;
+  modules.hardware.graphics.amdgpu.enable = true;
   modules.services.lact.enable = true;
   modules.hardware.quadcast.enable = true;
   modules.hardware.razer.enable = true;

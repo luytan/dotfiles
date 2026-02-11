@@ -34,9 +34,14 @@ in
         START_CHARGE_THRESH_BAT0 = 75;
         STOP_CHARGE_THRESH_BAT0 = 81;
         RUNTIME_PM_ON_AC = "auto";
-      } // lib.optionalAttrs (config.networking.hostName == "leafeon") {
+      }
+      // lib.optionalAttrs (config.networking.hostName == "leafeon") {
         # Specific to lenovo laptops
         STOP_CHARGE_THRESH_BAT0 = 1;
+      }
+      // lib.optionalAttrs (config.networking.hostName == "sylveon") {
+        # Specific to workstation
+        CPU_BOOST_ON_AC = 1;
       };
     };
   };

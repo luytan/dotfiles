@@ -21,6 +21,7 @@
       "update.enableWindowsBackgroundUpdates" = "false";
       "update.mode" = "manual";
       "extensions.autoUpdate" = "false";
+      "git.confirmSync" = "false";
     };
   };
 }

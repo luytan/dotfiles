@@ -10,5 +10,6 @@
     imports = [
     ./discord.nix
     ./vicinae.nix
+    ./niri.nix
   ];
 }

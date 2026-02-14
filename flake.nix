@@ -50,6 +50,9 @@
     lmstudio = {
       url = "github:tomsch/lmstudio-nix";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+    };
   };
 
   outputs =
@@ -63,6 +66,7 @@
       lanzaboote,
       disko,
       determinate,
+      niri,
       ...
     }@inputs:
     let
@@ -92,6 +96,8 @@
             disko.nixosModules.disko
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
+            niri.nixosModules.niri
+
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

@@ -1,8 +1,14 @@
 { inputs, pkgs, ... }:
 {
-  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+  nixpkgs.overlays = [
+    inputs.rust-overlay.overlays.default
+    inputs.niri.overlays.niri
+  ];
   nix.settings.allowed-users = [ "@wheel" ];
-  nix.settings.trusted-users = [ "luytan" "@wheel" ];
+  nix.settings.trusted-users = [
+    "luytan"
+    "@wheel"
+  ];
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [
     "nix-command"

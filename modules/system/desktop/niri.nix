@@ -18,10 +18,13 @@ in
   config = lib.mkIf cfg.niri {
     programs.niri = {
       enable = true;
-      package = pkgs.niri-stable;
+      package = pkgs.niri-unstable;
     };
   environment.systemPackages = with pkgs; [
     xwayland-satellite
+    app2unit
+    xdg-terminal-exec
+    playerctl
   ];
     programs.uwsm = {
       enable = true;

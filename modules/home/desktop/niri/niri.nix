@@ -5,22 +5,21 @@
 }:
 {
   imports = [
-    #inputs.niri.homeModules.niri
-    ./noctalia.nix
+    ./settings
   ];
   programs.niri = {
-    #enable = true;
-    #package = pkgs.niri-stable;
     settings = {
-      #spawn-at-startup = [
-      #  {
-      #    argv = [
-      #      "qs"
-      #      "-c"
-      #      "noctalia-shell"
-      #    ];
-      #  }
-      #];
+      spawn-at-startup = [
+      ];
+
+      hotkey-overlay.skip-at-startup = true;
+
+      screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+
+      animations = {
+        # slowdown = 3.0;
+      };
+
       window-rules = [
         {
           geometry-corner-radius = {
@@ -31,7 +30,16 @@
           };
           clip-to-geometry = true;
         }
+        {
+          matches = [ { app-id = "^org\\.wezfurlong\\.wezterm$"; } ];
+          default-column-width = { };
+        }
+        {
+          matches = [ { app-id = "firefox$"; title = "^Picture-in-Picture$"; } ];
+          open-floating = true;
+        }
       ];
+
       layer-rules = [
         {
           matches = [
@@ -40,9 +48,6 @@
           place-within-backdrop = true;
         }
       ];
-      debug = {
-        honor-xdg-activation-with-invalid-serial = [ ];
-      };
     };
   };
 }

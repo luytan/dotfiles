@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 let
@@ -22,7 +23,9 @@ in
     # Graphics drivers and extra packages
     hardware.graphics = {
       enable = true;
+      package = pkgs-unstable.mesa;
       enable32Bit = true;
+      package32 = pkgs-unstable.pkgsi686Linux.mesa;
       extraPackages = with pkgs; [
         libva
         libva-utils
@@ -33,12 +36,6 @@ in
       "amdgpu.dpm=1" # Enable dynamic power management
       "pcie_aspm=force" # Force PCIe Active State Power Management
     ];
-    
-    # Force the AMD GPU to auto-suspend
-    services.udev.extraRules = ''
-      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{device}=="0x73ef", ATTR{power/control}="auto"
-      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{device}=="0xab28", ATTR{power/control}="auto"
-    '';
 
     hardware.amdgpu.initrd.enable = true;
   };

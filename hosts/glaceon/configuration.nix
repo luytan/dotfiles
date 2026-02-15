@@ -73,7 +73,7 @@
   };
   modules.desktop = {
     plasma = true;
-    hyprland = false;
+    niri = false;
   };
   # Users
   users.users.luytan = {

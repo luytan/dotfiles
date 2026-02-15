@@ -6,14 +6,12 @@ in
 {
   options.modules.desktop = {
     plasma = mkEnableOption "plasma";
-    hyprland = mkEnableOption "hyprland";
-    #hyprland = mkEnableOption "hyprland";
+    niri = mkEnableOption "niri";
   };
 
   imports = [
     ./plasma.nix
-    ./hyprland.nix
+    ./niri.nix
     ./pkgs
-    #./hyprland.nix
   ];
 }

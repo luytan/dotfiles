@@ -23,11 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     ekphos = {
       url = "github:hanebox/ekphos";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -52,6 +47,10 @@
     };
     niri = {
       url = "github:sodiboo/niri-flake";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -89,7 +88,7 @@
         lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs pkgs-unstable;
           };
           modules = [
             ./hosts/${host}/configuration.nix
@@ -97,7 +96,6 @@
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             niri.nixosModules.niri
-
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

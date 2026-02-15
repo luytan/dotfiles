@@ -90,7 +90,7 @@
 
   modules.desktop = {
     plasma = true;
-    hyprland = false;
+    niri = true;
   };
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";

@@ -12,11 +12,13 @@
   home.stateVersion = "25.11";
   imports = [
     ./modules/home/default.nix
+    inputs.zen-browser.homeModules.beta
   ];
 
   home.packages = [
 #    pkgs-cisco.ciscoPacketTracer9
   ];
+  programs.zen-browser.enable = true;
   home.file = {
   };
   xdg = {

@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.hardware.network;
 in
@@ -29,5 +34,18 @@ in
       ];
       dnsovertls = "opportunistic";
     };
+    networking.firewall = {
+      enable = true;
+      backend = "firewalld";
+      checkReversePath = "loose";
+    };
+
+    services.firewalld = {
+      enable = true;
+    };
+    networking.nftables.enable = true;
+    environment.systemPackages = [
+      pkgs.firewalld-gui
+    ];
   };
 }

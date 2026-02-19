@@ -55,10 +55,15 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
-        # IMPORTANT: To ensure compatibility with the latest Firefox version, use nixpkgs-unstable.
         nixpkgs.follows = "nixpkgs-unstable";
         home-manager.follows = "home-manager";
       };
+    };
+    librepods = {
+      url = "github:kavishdevar/librepods/linux/rust";
+    };
+    hybridmanager = {
+      url = "git+ssh://git@github.com/luytan/hybridmanager?ref=dev";
     };
   };
 

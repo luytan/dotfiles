@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -17,10 +18,11 @@
     ../../modules/system/containers
     ../../modules/system/gaming
     ../../modules/system/virtualization
-#    ../../modules/system/sysctl
+    #    ../../modules/system/sysctl
     ../../modules/system/desktop
+    inputs.hybridmanager.nixosModules.default
   ];
-
+  services.hybridmanager.enable = true;
   modules.hardware.asusctl.enable = true;
   modules.hardware.razer.enable = true;
   modules.services.tuned.enable = false;
@@ -51,7 +53,6 @@
     enable = true;
     package = pkgs.usbmuxd2;
   };
-
   # Desktop Environment
 
   ## Cosmic Desktop

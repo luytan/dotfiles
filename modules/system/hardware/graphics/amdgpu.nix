@@ -23,9 +23,9 @@ in
     # Graphics drivers and extra packages
     hardware.graphics = {
       enable = true;
-      package = pkgs-unstable.mesa;
+      #package = pkgs-unstable.mesa;
       enable32Bit = true;
-      package32 = pkgs-unstable.pkgsi686Linux.mesa;
+      #package32 = pkgs-unstable.pkgsi686Linux.mesa;
       extraPackages = with pkgs; [
         libva
         libva-utils

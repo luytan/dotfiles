@@ -10,5 +10,6 @@
     ./desktop
     ./sysadmin
     ./ai
+    ./apps
   ];
 }

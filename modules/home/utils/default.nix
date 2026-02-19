@@ -20,5 +20,7 @@
     nvtopPackages.full
     efibootmgr
     pwgen
+    lsof
+    
   ];
 }

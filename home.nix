@@ -12,15 +12,20 @@
   home.stateVersion = "25.11";
   imports = [
     ./modules/home/default.nix
-    inputs.zen-browser.homeModules.beta
   ];
 
   home.packages = [
 #    pkgs-cisco.ciscoPacketTracer9
   ];
-  programs.zen-browser.enable = true;
   home.file = {
   };
+  home.file.".face" = {
+  source = pkgs.fetchurl {
+    url = "https://cdn.discordapp.com/avatars/1396520220767686727/a_dab1c1d50eba77012a94db6085313e96.gif?size=4096";
+    sha256 = "0y7pdbb3wgd18x9zd2nshyc5x0ha3nbm6jd5xxy5gdh1vxzbn5ld"; # Remplacez par le vrai hash
+  };
+};
+
   xdg = {
     enable = true;
   };

@@ -11,33 +11,34 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     liberation_ttf
-    fira-code
-    fira-code-symbols
+    noto-fonts-cjk-serif
+    source-serif
   ];
 
-
+  fonts.enableDefaultPackages = true;
+  fonts.fontDir.enable = true;
   fonts.fontconfig = {
     enable = true;
     antialias = true;
 
     hinting = {
       enable = true;
-      style = "slight";
+      style = "none";
       autohint = false;
     };
 
     subpixel = {
-      rgba = "rgb";
-      lcdfilter = "default";
+      rgba = "none";
+      lcdfilter = "none";
     };
 
     defaultFonts = {
       monospace = [ "JetBrains Mono" ];
       sansSerif = [ "Inter" ];
-      serif = [ "Noto Serif" "Source Serif Pro" ];
+      serif = [ "Noto Serif" "Source Serif Pro" "Source Serif 4"];
       emoji = [ "Noto Color Emoji" ];
     };
     allowBitmaps = false;
-    useEmbeddedBitmaps = false;
+    useEmbeddedBitmaps = true;
   };
 }

@@ -1,9 +1,9 @@
-{pkgs-unstable, ...}:
+{pkgs, ...}:
 
 {
   programs.discord = {
     enable = true;
-    package = pkgs-unstable.discord-canary.override {
+    package = pkgs.discord-canary.override {
       withEquicord = true;
     };
   };

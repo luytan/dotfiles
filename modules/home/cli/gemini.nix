@@ -1,8 +1,8 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   programs.gemini-cli = {
     enable = true;
-    package = pkgs-unstable.gemini-cli;
+    package = pkgs.gemini-cli;
     settings = {
       general = {
         preferredEditor = "vim";

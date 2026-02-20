@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs-unstable,
+  pkgs,
   inputs,
   ...
 }:
@@ -18,7 +18,7 @@ in
     #services.hybridmanager.enable = true;
     services.asusd = {
       enable = true;
-      package = pkgs-unstable.asusctl;
+      package = pkgs.asusctl;
       enableUserService = true;
     };
     services.supergfxd.enable = false;

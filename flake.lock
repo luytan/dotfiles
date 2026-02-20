@@ -54,7 +54,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -349,22 +349,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-plasma": {
-      "locked": {
-        "lastModified": 1771317231,
-        "narHash": "sha256-l4iFpJ9mITcduvLgPJ9w5gTys35YZC+urg+DuUq6B2w=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9a48adcbc42ce699858e45cde4e40c4ff811b524",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/479797/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1771419570,
@@ -377,22 +361,6 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-25.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-unstable": {
-      "locked": {
-        "lastModified": 1771369470,
-        "narHash": "sha256-0NBlEBKkN3lufyvFegY4TYv5mCNHbi5OmBDrzihbBMQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "0182a361324364ae3f436a63005877674cf45efb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -447,16 +415,16 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1771419570,
-        "narHash": "sha256-bxAlQgre3pcQcaRUm/8A0v/X8d2nhfraWSFqVmMcBcU=",
+        "lastModified": 1771369470,
+        "narHash": "sha256-0NBlEBKkN3lufyvFegY4TYv5mCNHbi5OmBDrzihbBMQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6d41bc27aaf7b6a3ba6b169db3bd5d6159cfaa47",
+        "rev": "0182a361324364ae3f436a63005877674cf45efb",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.11",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -531,8 +499,6 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-cisco": "nixpkgs-cisco",
-        "nixpkgs-plasma": "nixpkgs-plasma",
-        "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
         "rust-overlay": "rust-overlay_2",
         "vicinae": "vicinae",
@@ -764,7 +730,7 @@
           "home-manager"
         ],
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {

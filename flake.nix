@@ -2,10 +2,8 @@
   description = "My NixOS configuration :3";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-cisco.url = "github:NixOS/nixpkgs/pull/456650/head";
-    nixpkgs-plasma.url = "github:NixOS/nixpkgs/pull/479797/head";
 
     # Home Manager
     home-manager = {
@@ -25,7 +23,7 @@
 
     ekphos = {
       url = "github:hanebox/ekphos";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -51,7 +49,7 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
+        nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
     };
@@ -64,9 +62,7 @@
     {
       self,
       nixpkgs,
-      nixpkgs-unstable,
       nixpkgs-cisco,
-      nixpkgs-plasma,
       home-manager,
       lanzaboote,
       disko,
@@ -78,10 +74,6 @@
       lib = nixpkgs.lib;
 
       # other pkgs
-      pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
       pkgs-cisco = import nixpkgs-cisco {
         inherit system;
         config.allowUnfree = true;
@@ -93,7 +85,7 @@
         lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs pkgs-unstable;
+            inherit inputs;
           };
           modules = [
             ./hosts/${host}/configuration.nix
@@ -105,7 +97,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs pkgs-unstable pkgs-cisco;
+                inherit inputs pkgs-cisco;
               };
               home-manager.users.luytan = import ./home.nix;
             }

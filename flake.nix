@@ -58,9 +58,6 @@
     librepods = {
       url = "github:kavishdevar/librepods/linux/rust";
     };
-    hybridmanager = {
-      url = "git+ssh://git@github.com/luytan/hybridmanager?ref=dev";
-    };
   };
 
   outputs =

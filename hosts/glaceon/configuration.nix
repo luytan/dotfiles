@@ -19,9 +19,7 @@
     ../../modules/system/gaming
     ../../modules/system/virtualization
     ../../modules/system/desktop
-    inputs.hybridmanager.nixosModules.default
   ];
-  services.hybridmanager.enable = true;
   modules.hardware.asusctl.enable = true;
   modules.hardware.razer.enable = true;
   modules.services.tuned.enable = false;

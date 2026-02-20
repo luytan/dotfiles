@@ -21,6 +21,6 @@
     efibootmgr
     pwgen
     lsof
-    
+    yubikey-manager
   ];
 }

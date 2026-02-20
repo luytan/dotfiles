@@ -12,4 +12,5 @@
     enable = true;
     binfmt = true;
   };
+  services.pcscd.enable = true;
 }

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.modules.hardware.quadcast;
@@ -10,7 +15,6 @@ let
       url = "https://github.com/Ors1mer/QuadcastRGB.git";
       sha256 = "WiQjtFk6UQ+xNzujaWasbGf+gZ98OM2dYzp9/bp1mks=";
     };
-
 
     nativeBuildInputs = [ pkgs.pkg-config ];
     buildInputs = [ pkgs.libusb1 ];

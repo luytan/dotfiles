@@ -2,7 +2,7 @@
 
 {
   fonts.packages = with pkgs; [
-    inter 
+    inter
     jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.hack
@@ -35,7 +35,11 @@
     defaultFonts = {
       monospace = [ "JetBrains Mono" ];
       sansSerif = [ "Inter" ];
-      serif = [ "Noto Serif" "Source Serif Pro" "Source Serif 4"];
+      serif = [
+        "Noto Serif"
+        "Source Serif Pro"
+        "Source Serif 4"
+      ];
       emoji = [ "Noto Color Emoji" ];
     };
     allowBitmaps = false;

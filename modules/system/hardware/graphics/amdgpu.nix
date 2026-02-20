@@ -11,7 +11,7 @@ in
   options.modules.hardware.graphics.amdgpu.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
-  };  
+  };
 
   config = lib.mkIf cfg.enable {
     boot.initrd.kernelModules = [ "amdgpu" ];

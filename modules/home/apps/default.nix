@@ -7,7 +7,7 @@
     mission-center
     filen-desktop
   ];
-    imports = [
+  imports = [
     ./discord.nix
     ./zen-browser.nix
   ];

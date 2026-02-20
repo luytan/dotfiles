@@ -1,4 +1,3 @@
-
 { ... }:
 {
   programs.niri.settings.input = {

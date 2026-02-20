@@ -43,11 +43,21 @@
 
     # Brightness key mappings for brightnessctl.
     "XF86MonBrightnessUp" = {
-      action.spawn = [ "brightnessctl" "--class=backlight" "set" "+10%" ];
+      action.spawn = [
+        "brightnessctl"
+        "--class=backlight"
+        "set"
+        "+10%"
+      ];
       allow-when-locked = true;
     };
     "XF86MonBrightnessDown" = {
-      action.spawn = [ "brightnessctl" "--class=backlight" "set" "10%-" ];
+      action.spawn = [
+        "brightnessctl"
+        "--class=backlight"
+        "set"
+        "10%-"
+      ];
       allow-when-locked = true;
     };
 
@@ -58,7 +68,11 @@
     };
 
     "Mod+Q".action.spawn = [ "app2unit-term" ];
-    "Mod+W".action.spawn = [ "app2unit" "--" "app.zen_browser.zen" ];
+    "Mod+W".action.spawn = [
+      "app2unit"
+      "--"
+      "app.zen_browser.zen"
+    ];
     "Mod+C".action.close-window = [ ];
 
     "Mod+Left".action.focus-column-left = [ ];

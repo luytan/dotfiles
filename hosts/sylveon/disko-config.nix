@@ -33,27 +33,59 @@
                 "--perf-no_write_workqueue"
               ];
               settings = {
-                crypttabExtraOpts = ["tpm2-device=auto"];
+                crypttabExtraOpts = [ "tpm2-device=auto" ];
               };
               content = {
                 type = "btrfs";
-                extraArgs = ["-L" "nixos" "-f"];
+                extraArgs = [
+                  "-L"
+                  "nixos"
+                  "-f"
+                ];
                 subvolumes = {
                   "/root" = {
                     mountpoint = "/";
-                    mountOptions = ["subvol=root" "compress=zstd:3" "ssd" "space_cache=v2" "discard=async" "noatime"];
+                    mountOptions = [
+                      "subvol=root"
+                      "compress=zstd:3"
+                      "ssd"
+                      "space_cache=v2"
+                      "discard=async"
+                      "noatime"
+                    ];
                   };
                   "/home" = {
                     mountpoint = "/home";
-                    mountOptions = ["subvol=home" "compress=zstd:3" "ssd" "space_cache=v2" "discard=async" "noatime"];
+                    mountOptions = [
+                      "subvol=home"
+                      "compress=zstd:3"
+                      "ssd"
+                      "space_cache=v2"
+                      "discard=async"
+                      "noatime"
+                    ];
                   };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = ["subvol=nix" "compress=zstd:3" "ssd" "space_cache=v2" "discard=async" "noatime"];
+                    mountOptions = [
+                      "subvol=nix"
+                      "compress=zstd:3"
+                      "ssd"
+                      "space_cache=v2"
+                      "discard=async"
+                      "noatime"
+                    ];
                   };
                   "/log" = {
                     mountpoint = "/var/log";
-                    mountOptions = ["subvol=log" "compress=zstd:3" "ssd" "space_cache=v2" "discard=async" "noatime"];
+                    mountOptions = [
+                      "subvol=log"
+                      "compress=zstd:3"
+                      "ssd"
+                      "space_cache=v2"
+                      "discard=async"
+                      "noatime"
+                    ];
                   };
                 };
               };
@@ -66,4 +98,3 @@
 
   fileSystems."/var/log".neededForBoot = true;
 }
-

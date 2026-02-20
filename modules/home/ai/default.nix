@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
   ];
-    imports = [
-      ./lm-studio.nix
+  imports = [
+    ./lm-studio.nix
   ];
 }

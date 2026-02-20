@@ -13,7 +13,7 @@
     lstr
     neovim
   ];
-    imports = [
+  imports = [
     ./jetbrain.nix
     ./editors
     ./languages

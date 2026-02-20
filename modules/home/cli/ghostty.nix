@@ -36,7 +36,7 @@
       command = "fish";
       confirm-close-surface = false;
       font-family = "FiraCode Nerd Font Mono";
-      background-opacity = 0.9; 
+      background-opacity = 0.9;
     };
   };
 }

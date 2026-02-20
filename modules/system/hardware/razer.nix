@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.hardware.razer;
 in
@@ -11,6 +16,8 @@ in
       openrazer-daemon
       polychromatic
     ];
-    users.users.luytan = { extraGroups = [ "openrazer" ]; };
+    users.users.luytan = {
+      extraGroups = [ "openrazer" ];
+    };
   };
 }

@@ -20,12 +20,12 @@ in
       enable = true;
       package = pkgs.niri-unstable;
     };
-  environment.systemPackages = with pkgs; [
-    xwayland-satellite
-    app2unit
-    xdg-terminal-exec
-    playerctl
-  ];
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+      app2unit
+      xdg-terminal-exec
+      playerctl
+    ];
     programs.uwsm = {
       enable = true;
       package = pkgs.uwsm;

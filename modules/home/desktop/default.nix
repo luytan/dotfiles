@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-    imports = [
+  imports = [
     ./vicinae.nix
     ./niri
   ];

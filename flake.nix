@@ -31,10 +31,6 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    determinate = {
-      url = "github:DeterminateSystems/nix-src";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,7 +73,6 @@
       home-manager,
       lanzaboote,
       disko,
-      determinate,
       niri,
       ...
     }@inputs:

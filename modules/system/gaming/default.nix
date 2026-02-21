@@ -11,8 +11,16 @@ let
 in
 {
   options.modules.gaming = {
-    enable = mkEnableOption "gaming";
-    gamescope = mkEnableOption "gamescope";
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable gaming-related packages";
+    };
+    gamescope = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Gamescope compositor support";
+    };
   };
   config = mkMerge [
     (mkIf cfg.enable {

@@ -5,15 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.services.tlp;
+  cfg = config.modules.services;
 in
 {
-  options.modules.services.tlp.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.tlp {
 
     services.system76-scheduler.settings.cfsProfiles.enable = true;
     services.power-profiles-daemon.enable = false;

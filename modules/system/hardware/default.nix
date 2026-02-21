@@ -1,13 +1,18 @@
-{ ... }:
+{ lib, ... }:
+with lib;
 {
+  options.modules.hardware = {
+    audio = mkOption {
+      type = types.bool;
+      default = true;
+    };
+  };
+
   imports = [
-    ./graphics
-    ./asusctl.nix
     ./audio.nix
-    ./network.nix
-    ./quadcast.nix
-    ./razer.nix
-    ./zram.nix
-    ./fingerprint.nix
+    ./graphics
+    ./network
+    ./peripherals
+    ./platform
   ];
 }

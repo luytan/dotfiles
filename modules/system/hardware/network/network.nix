@@ -8,12 +8,7 @@ let
   cfg = config.modules.hardware.network;
 in
 {
-  options.modules.hardware.network.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.network {
     networking.networkmanager = {
       enable = true;
       wifi.macAddress = "random";
@@ -47,5 +42,6 @@ in
     environment.systemPackages = [
       pkgs.firewalld-gui
     ];
+    services.tailscale.enable = true;
   };
 }

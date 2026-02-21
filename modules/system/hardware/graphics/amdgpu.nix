@@ -5,15 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.hardware.graphics.amdgpu;
+  cfg = config.modules.hardware.graphics;
 in
 {
-  options.modules.hardware.graphics.amdgpu.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.amdgpu {
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     # XServer / generic video driver

@@ -5,12 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.hardware.razer;
+  cfg = config.modules.hardware.peripherals;
 in
 {
-  options.modules.hardware.razer.enable = lib.mkEnableOption "razer";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.razer {
     hardware.openrazer.enable = true;
     environment.systemPackages = with pkgs; [
       openrazer-daemon

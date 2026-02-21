@@ -2,15 +2,13 @@
 {
   imports = [
     ./boot.nix
+    ./fonts.nix
     ./locale.nix
+    ./misc.nix
     ./nix.nix
-    ./services.nix
     ./pkg.nix
+    ./services.nix
+    ./user.nix
+    ./zram.nix
   ];
-  users.users.root.hashedPassword = "!";
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
-  services.pcscd.enable = true;
 }

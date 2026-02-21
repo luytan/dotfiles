@@ -18,13 +18,13 @@
     profiles.default.userSettings = {
       "workbench.colorTheme" = "Catppuccin Macchiato";
       "workbench.iconTheme" = "material-icon-theme";
-      "update.enableWindowsBackgroundUpdates" = "false";
+      "update.enableWindowsBackgroundUpdates" = false;
       "update.mode" = "manual";
-      "extensions.autoUpdate" = "false";
-      "git.confirmSync" = "false";
+      "extensions.autoUpdate" = false;
+      "git.confirmSync" = false;
       "editor.fontFamily" = "JetBrains Mono";
-      "editor.fontLigatures" = "true";
-      "explorer.confirmDragAndDrop" = "false";
+      "editor.fontLigatures" = true;
+      "explorer.confirmDragAndDrop" = false;
     };
   };
 }

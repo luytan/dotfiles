@@ -6,6 +6,7 @@
     settings = {
       general = {
         preferredEditor = "vim";
+        previewFeatures = true;
       };
       security = {
         auth = {

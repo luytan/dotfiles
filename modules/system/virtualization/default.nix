@@ -5,8 +5,16 @@ let
 in
 {
   options.modules.virtualization = {
-    kvm = mkEnableOption "kvm";
-    vmware = mkEnableOption "vmware";
+    kvm = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable KVM virtualization support";
+    };
+    vmware = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable VMware virtualization support";
+    };
   };
 
   imports = [

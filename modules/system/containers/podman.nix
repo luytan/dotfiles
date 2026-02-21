@@ -5,17 +5,12 @@
   ...
 }:
 let
-  cfg = config.modules.containers.podman;
+  cfg = config.modules.containers;
 in
 {
-  options.modules.containers.podman.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-  };
-
-  config = lib.mkIf cfg.enable {
-    virtualisation.containers.enable = true;
+  config = lib.mkIf cfg.podman {
     virtualisation = {
+      containers.enable = true;
       podman = {
         enable = true;
         dockerCompat = false;
@@ -26,7 +21,6 @@ in
     environment.systemPackages = with pkgs; [
       dive
       podman-tui
-      docker-compose
       distrobox
       podman-compose
       podman-desktop

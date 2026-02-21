@@ -5,15 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.services.lact;
+  cfg = config.modules.services;
 in
 {
-  options.modules.services.lact.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.lact {
     environment.systemPackages = with pkgs; [ lact ];
     systemd.packages = with pkgs; [ lact ];
     systemd.services.lactd.wantedBy = [ "multi-user.target" ];

@@ -1,6 +1,5 @@
 { ... }:
 {
-  # # FISH
   programs.fish = {
     enable = true;
     interactiveShellInit = ''

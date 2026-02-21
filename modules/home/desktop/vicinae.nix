@@ -5,7 +5,7 @@
     enable = true;
     systemd = {
       enable = true;
-      autoStart = true; # default: false
+      autoStart = true;
       environment = {
         USE_LAYER_SHELL = 1;
       };
@@ -40,7 +40,6 @@
       bluetooth
       nix
       power-profile
-      # Extension names can be found in the link below, it's just the folder names
     ];
   };
 

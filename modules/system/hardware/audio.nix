@@ -5,15 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.hardware.audio;
+  cfg = config.modules.hardware;
 in
 {
-  options.modules.hardware.audio.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.audio {
     services.pipewire = {
       enable = true;
       wireplumber.enable = true;
@@ -21,11 +16,6 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
-      #lowLatency = {
-      #  enable = true;
-      #  quantum = 64;
-      #  rate = 48000;
-      #};
     };
     environment.systemPackages = with pkgs; [
       easyeffects

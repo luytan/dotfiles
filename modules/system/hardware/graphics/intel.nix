@@ -5,14 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.hardware.graphics.intel;
+  cfg = config.modules.hardware.graphics;
 in
 {
-  options.modules.hardware.graphics.intel.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-  };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.intel {
     # XServer / generic video driver
     services.xserver.videoDrivers = [ "modesetting" ];
     hardware.enableRedistributableFirmware = true;
@@ -35,6 +31,5 @@ in
       "video"
       "render"
     ];
-    hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
 }

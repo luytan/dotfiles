@@ -7,6 +7,7 @@
 
 let
   cfg = config.modules.hardware.peripherals;
+
   quadcastrgb = pkgs.stdenv.mkDerivation rec {
     pname = "quadcastrgb";
     version = "git";
@@ -32,6 +33,21 @@ in
 {
   config = lib.mkIf cfg.quadcast {
     environment.systemPackages = [ quadcastrgb ];
-    services.udev.packages = [ quadcastrgb ];
+    services.udev.extraRules = ''
+      SUBSYSTEM=="usb", ATTR{idVendor}=="03f0", ATTR{idProduct}=="0f8b", TAG+="uaccess"
+    '';
+
+    systemd.user.services.quadcastrgb = {
+      description = "HyperX Quadcast RGB Wave";
+
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${quadcastrgb}/bin/quadcastrgb wave";
+        RemainAfterExit = false;
+      };
+    };
   };
 }

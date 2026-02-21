@@ -25,6 +25,7 @@
       "editor.fontFamily" = "JetBrains Mono";
       "editor.fontLigatures" = true;
       "explorer.confirmDragAndDrop" = false;
+      "diffEditor.ignoreTrimWhitespace" = false;
     };
   };
 }

@@ -15,7 +15,6 @@ in
   imports = [
     ./eza.nix
     ./fish.nix
-    ./gemini.nix
     ./ghostty.nix
     ./git.nix
     ./gpg.nix

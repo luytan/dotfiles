@@ -5,5 +5,6 @@
   ];
   imports = [
     ./lm-studio.nix
+    ./gemini.nix
   ];
 }

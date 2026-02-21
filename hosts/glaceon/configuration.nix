@@ -52,6 +52,6 @@
   modules.services = {
     tlp = true;
   };
-  
+
   system.stateVersion = "25.11";
 }

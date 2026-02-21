@@ -8,7 +8,6 @@
     filen-desktop
   ];
   imports = [
-    ./discord.nix
     ./zen-browser.nix
   ];
 }

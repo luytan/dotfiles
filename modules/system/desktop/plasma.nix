@@ -17,13 +17,14 @@ in
         accents = [ "mauve" ];
       })
     ];
-    services.desktopManager.plasma6.enable = true;
-    xdg.portal = {
+    services.desktopManager.plasma6 = {
       enable = true;
-      extraPortals = [
-        pkgs.kdePackages.xdg-desktop-portal-kde
-        pkgs.xdg-desktop-portal-gtk
-      ];
     };
+    services.displayManager.defaultSession = "plasma";
+    environment.plasma6.excludePackages = with pkgs.kdePackages; [
+      kwin-x11
+      discover
+    ];
+    services.displayManager.plasma-login-manager.enable = true;
   };
 }

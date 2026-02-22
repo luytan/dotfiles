@@ -22,5 +22,8 @@
     pwgen
     lsof
     yubikey-manager
+    mpv
+    kdePackages.filelight
+    nixfmt-tree
   ];
 }

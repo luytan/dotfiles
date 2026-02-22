@@ -4,7 +4,8 @@
     enable = true;
     package = pkgs.vscodium;
     profiles.default.extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc
+      enkia.tokyo-night
+      #catppuccin.catppuccin-vsc
       pkief.material-icon-theme
       jnoortheen.nix-ide
       #vscodevim.vim
@@ -16,13 +17,13 @@
       rust-lang.rust-analyzer
     ];
     profiles.default.userSettings = {
-      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.colorTheme" = "Tokyo Night";
       "workbench.iconTheme" = "material-icon-theme";
       "update.enableWindowsBackgroundUpdates" = false;
       "update.mode" = "manual";
       "extensions.autoUpdate" = false;
       "git.confirmSync" = false;
-      "editor.fontFamily" = "JetBrains Mono";
+      "editor.fontFamily" = "Fira Code";
       "editor.fontLigatures" = true;
       "explorer.confirmDragAndDrop" = false;
       "diffEditor.ignoreTrimWhitespace" = false;

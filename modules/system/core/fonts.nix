@@ -23,13 +23,13 @@
 
     hinting = {
       enable = true;
-      style = "none";
+      style = "slight";
       autohint = false;
     };
 
     subpixel = {
-      rgba = "none";
-      lcdfilter = "none";
+      rgba = "rgb";
+      lcdfilter = "default";
     };
 
     defaultFonts = {
@@ -45,4 +45,6 @@
     allowBitmaps = false;
     useEmbeddedBitmaps = true;
   };
+
+  environment.variables.FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
 }

@@ -20,11 +20,11 @@ in
     services.desktopManager.plasma6 = {
       enable = true;
     };
-    services.displayManager.defaultSession = "plasma";
+    #services.displayManager.defaultSession = "plasma";
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       kwin-x11
       discover
     ];
-    services.displayManager.plasma-login-manager.enable = true;
+    #services.displayManager.plasma-login-manager.enable = true;
   };
 }

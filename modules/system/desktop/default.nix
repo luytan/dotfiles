@@ -25,7 +25,7 @@ in
   imports = [
     ./plasma.nix
     ./niri.nix
-    #  ./sddm.nix
+    ./sddm.nix
   ];
 
   config = {

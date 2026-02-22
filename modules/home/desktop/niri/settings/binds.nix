@@ -3,7 +3,7 @@
   programs.niri.settings.binds = {
     # Noctalia
     "Mod+Space".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
-    "Mod+Alt+L".action.spawn-sh = "noctalia-shell ipc call sessionMenu lockAndSuspend";
+    "Mod+Alt+L".action.spawn-sh = "noctalia-shell ipc call lockScreen lock";
 
     # Volume keys mappings for PipeWire & WirePlumber.
     "XF86AudioRaiseVolume" = {
@@ -71,7 +71,7 @@
     "Mod+W".action.spawn = [
       "app2unit"
       "--"
-      "app.zen_browser.zen"
+      "zen-beta"
     ];
     "Mod+C".action.close-window = [ ];
 

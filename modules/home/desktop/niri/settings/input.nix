@@ -17,7 +17,7 @@
       "accel-speed" = 0;
     };
     focus-follows-mouse.enable = true;
-    # warp-mouse-to-focus = true;
+    warp-mouse-to-focus.enable = true;
     # focus-follows-mouse.max-scroll-amount = "0%";
   };
 }

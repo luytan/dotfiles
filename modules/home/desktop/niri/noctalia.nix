@@ -81,7 +81,7 @@
         screenOverrides = [ ];
       };
       general = {
-        avatarImage = "";
+        avatarImage = "~/.face";
         dimmerOpacity = 0.2;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
@@ -454,7 +454,7 @@
       };
       colorSchemes = {
         useWallpaperColors = false;
-        predefinedScheme = "Noctalia (default)";
+        predefinedScheme = "Tokyo Night";
         darkMode = true;
         schedulingMode = "off";
         manualSunrise = "06:30";

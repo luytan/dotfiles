@@ -7,6 +7,16 @@
   imports = [
     ./settings
   ];
+  home.packages = with pkgs; [
+    brightnessctl
+    imagemagick
+    ddcutil
+    cliphist
+    cava
+    python3
+    evolution-data-server
+    wlsunset
+  ];
   programs.niri = {
     settings = {
       spawn-at-startup = [

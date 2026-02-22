@@ -77,14 +77,17 @@
                       "noatime"
                     ];
                   };
-                  "/home/${user}/games" = {
+                  "/games" = {
                     mountpoint = "/home/${user}/Games";
                     mountOptions = [
+                      "subvol=games"
+                      "rw"
                       "compress=zstd:1"
                       "ssd"
                       "space_cache=v2"
                       "discard=async"
                       "noatime"
+                      "nofail"
                     ];
                   };
                   "/nix" = {

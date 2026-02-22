@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }:
 let
@@ -12,7 +13,7 @@ in
     services.snapper = {
       configs.home = {
         SUBVOLUME = "/home";
-        ALLOW_USERS = [ "luytan" ];
+        ALLOW_USERS = [ "${user}" ];
         TIMELINE_CREATE = true;
         TIMELINE_CLEANUP = true;
         TIMELINE_LIMIT_HOURLY = "10";

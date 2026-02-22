@@ -1,10 +1,10 @@
-{ ... }:
+{ user, ... }:
 {
   users.users = {
     root = {
       hashedPassword = "!";
     };
-    luytan = {
+    ${user} = {
       isNormalUser = true;
       extraGroups = [
         "wheel"

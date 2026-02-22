@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }:
 let
@@ -27,7 +28,7 @@ in
         intel-vaapi-driver
       ];
     };
-    users.users.luytan.extraGroups = [
+    users.users.${user}.extraGroups = [
       "video"
       "render"
     ];

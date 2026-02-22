@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }:
 let
@@ -26,7 +27,7 @@ in
         };
       };
     };
-    users.users.luytan.extraGroups = [ "docker" ];
+    users.users.${user}.extraGroups = [ "docker" ];
     environment.systemPackages = with pkgs; [
       docker-compose
     ];

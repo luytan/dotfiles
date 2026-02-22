@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  user,
+  ...
+}:
 let
   cfg = config.modules.services;
 in
@@ -8,7 +13,7 @@ in
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 5";
-      flake = "/home/luytan/Documents/NixOS/dotfiles";
+      flake = "/home/${user}/Documents/NixOS/dotfiles";
     };
   };
 }

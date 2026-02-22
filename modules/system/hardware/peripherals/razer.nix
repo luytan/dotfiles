@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }:
 let
@@ -14,7 +15,7 @@ in
       openrazer-daemon
       polychromatic
     ];
-    users.users.luytan = {
+    users.users.${user} = {
       extraGroups = [ "openrazer" ];
     };
   };

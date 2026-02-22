@@ -3,12 +3,13 @@
   pkgs,
   inputs,
   pkgs-cisco,
+  user,
   ...
 }:
 
 {
-  home.username = "luytan";
-  home.homeDirectory = "/home/luytan";
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
   home.stateVersion = "25.11";
   imports = [
     ./modules/home/default.nix
@@ -19,6 +20,7 @@
     #inputs.librepods.packages.${pkgs.system}.default
     pkgs.gearlever
   ];
+  fonts.fontconfig.enable = true;
   home.file = {
   };
   home.file.".face" = {

@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  user,
+  ...
+}:
 {
   nixpkgs.overlays = [
     inputs.rust-overlay.overlays.default
@@ -6,7 +11,7 @@
   ];
   nix.settings.allowed-users = [ "@wheel" ];
   nix.settings.trusted-users = [
-    "luytan"
+    "${user}"
     "@wheel"
   ];
   nix.settings.auto-optimise-store = true;

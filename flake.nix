@@ -73,6 +73,8 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
 
+      user = "luytan";
+
       # other pkgs
       pkgs-cisco = import nixpkgs-cisco {
         inherit system;
@@ -85,6 +87,7 @@
         lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit user;
             inherit inputs;
           };
           modules = [
@@ -97,9 +100,9 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs pkgs-cisco;
+                inherit inputs pkgs-cisco user;
               };
-              home-manager.users.luytan = import ./home.nix;
+              home-manager.users.${user} = import ./home.nix;
             }
 
             # Lanzaboote / Secure Boot configuration

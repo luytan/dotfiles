@@ -46,7 +46,8 @@ in
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "${quadcastrgb}/bin/quadcastrgb wave";
-        RemainAfterExit = false;
+        RemainAfterExit = true;
+        KillMode = "process";
       };
     };
   };

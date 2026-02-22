@@ -1,3 +1,4 @@
+{ inputs, user, ... }:
 {
   disko.devices = {
     disk.nvme0n1 = {
@@ -47,7 +48,7 @@
                     mountpoint = "/";
                     mountOptions = [
                       "subvol=root"
-                      "compress=zstd:3"
+                      "compress=zstd:1"
                       "ssd"
                       "space_cache=v2"
                       "discard=async"
@@ -58,7 +59,28 @@
                     mountpoint = "/home";
                     mountOptions = [
                       "subvol=home"
-                      "compress=zstd:3"
+                      "compress=zstd:2"
+                      "ssd"
+                      "space_cache=v2"
+                      "discard=async"
+                      "noatime"
+                    ];
+                  };
+                  "/home/.snapshots" = {
+                    mountpoint = "/home/.snapshots";
+                    mountOptions = [
+                      "subvol=snapshots"
+                      "compress=zstd:2"
+                      "ssd"
+                      "space_cache=v2"
+                      "discard=async"
+                      "noatime"
+                    ];
+                  };
+                  "/home/${user}/games" = {
+                    mountpoint = "/home/${user}/Games";
+                    mountOptions = [
+                      "compress=zstd:1"
                       "ssd"
                       "space_cache=v2"
                       "discard=async"
@@ -69,7 +91,7 @@
                     mountpoint = "/nix";
                     mountOptions = [
                       "subvol=nix"
-                      "compress=zstd:3"
+                      "compress=zstd:1"
                       "ssd"
                       "space_cache=v2"
                       "discard=async"
@@ -80,7 +102,7 @@
                     mountpoint = "/var/log";
                     mountOptions = [
                       "subvol=log"
-                      "compress=zstd:3"
+                      "compress=zstd:5"
                       "ssd"
                       "space_cache=v2"
                       "discard=async"

@@ -1,5 +1,13 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  osConfig ? {},
+  ...
+}:
 
+let
+  isWsl = osConfig.wsl.enable or false;
+in
 {
   home.packages = with pkgs; [
     arping
@@ -10,9 +18,10 @@
     john
     sqlmap
     tcpdump
-    wireshark
     wavemon
     nmap
+  ] ++ lib.optionals (!isWsl) [
+    wireshark
     ghidra-bin
     burpsuite
   ];

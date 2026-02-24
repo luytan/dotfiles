@@ -1,5 +1,13 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  osConfig ? {},
+  ...
+}:
 
+let
+  isWsl = osConfig.wsl.enable or false;
+in
 {
   home.packages = with pkgs; [
     jdk
@@ -12,8 +20,9 @@
     neovim
   ];
   imports = [
+    ./languages
+  ] ++ lib.optionals (!isWsl) [
     ./jetbrain.nix
     ./editors
-    ./languages
   ];
 }

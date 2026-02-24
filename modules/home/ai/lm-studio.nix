@@ -1,4 +1,13 @@
-{ inputs, ... }:
 {
-  home.packages = [ inputs.lmstudio.packages.x86_64-linux.default ];
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
+
+let
+  lmStudioPackage = lib.attrByPath [ pkgs.stdenv.hostPlatform.system "default" ] null inputs.lmstudio.packages;
+in
+{
+  home.packages = lib.optionals (lmStudioPackage != null) [ lmStudioPackage ];
 }

@@ -1,7 +1,15 @@
-{ pkgs, ... }:
-
 {
-  imports = [
+  pkgs,
+  lib,
+  osConfig ? {},
+  ...
+}:
+
+let
+  isWsl = osConfig.wsl.enable or false;
+in
+{
+  imports = lib.optionals (!isWsl) [
     ./wine.nix
   ];
 
@@ -14,7 +22,6 @@
     file
     unzip
     rsync
-    wl-clipboard
     btop
     htop
     nvtopPackages.full
@@ -22,9 +29,11 @@
     pwgen
     lsof
     yubikey-manager
-    mpv
-    kdePackages.filelight
     nixfmt-tree
     unrar-free
+  ] ++ lib.optionals (!isWsl) [
+    wl-clipboard
+    mpv
+    kdePackages.filelight
   ];
 }

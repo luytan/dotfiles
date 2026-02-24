@@ -15,5 +15,7 @@
     linux-firmware
     libimobiledevice
     gparted
+    e2fsprogs
+    btrfs-progs
   ];
 }

@@ -25,5 +25,6 @@
     mpv
     kdePackages.filelight
     nixfmt-tree
+    unrar-free
   ];
 }

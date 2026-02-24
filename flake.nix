@@ -56,6 +56,10 @@
     librepods = {
       url = "github:kavishdevar/librepods/linux/rust";
     };
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

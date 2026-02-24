@@ -8,6 +8,7 @@
   nixpkgs.overlays = [
     inputs.rust-overlay.overlays.default
     inputs.niri.overlays.niri
+    inputs.nix-vscode-extensions.overlays.default
   ];
   nix.settings.allowed-users = [ "@wheel" ];
   nix.settings.trusted-users = [

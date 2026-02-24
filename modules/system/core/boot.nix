@@ -11,7 +11,6 @@
       "rd.systemd.show_status=auto"
     ];
     consoleLogLevel = 3;
-    initrd.verbose = false;
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
@@ -20,7 +19,10 @@
       systemd-boot.consoleMode = "max";
       timeout = 0;
     };
-    initrd.systemd.enable = true;
+    initrd = {
+      systemd.enable = false;
+      verbose = false;
+    };
     plymouth = {
       enable = true;
       theme = "nixos-bgrt";

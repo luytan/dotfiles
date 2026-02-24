@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  osConfig ? {},
+  osConfig ? { },
   ...
 }:
 
@@ -21,7 +21,8 @@ in
   ];
   imports = [
     ./languages
-  ] ++ lib.optionals (!isWsl) [
+  ]
+  ++ lib.optionals (!isWsl) [
     ./jetbrain.nix
     ./editors
   ];

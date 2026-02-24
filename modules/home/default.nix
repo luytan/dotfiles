@@ -1,4 +1,8 @@
-{ lib, osConfig ? {}, ... }:
+{
+  lib,
+  osConfig ? { },
+  ...
+}:
 
 let
   isWsl = osConfig.wsl.enable or false;
@@ -10,7 +14,8 @@ in
     ./cli
     ./sysadmin
     ./ai
-  ] ++ lib.optionals (!isWsl) [
+  ]
+  ++ lib.optionals (!isWsl) [
     ./gaming
     ./desktop
     ./apps

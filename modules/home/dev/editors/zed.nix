@@ -18,7 +18,7 @@
         light = "One Light";
       };
       telemetry = {
-        diagnostics =  false;
+        diagnostics = false;
         metrics = false;
       };
       hour_format = "hour24";

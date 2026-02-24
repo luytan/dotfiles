@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  osConfig ? {},
+  osConfig ? { },
   ...
 }:
 
@@ -14,7 +14,8 @@ in
   ];
   imports = [
     ./gemini.nix
-  ] ++ lib.optionals (!isWsl) [
+  ]
+  ++ lib.optionals (!isWsl) [
     ./lm-studio.nix
   ];
 }

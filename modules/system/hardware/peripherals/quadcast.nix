@@ -35,6 +35,8 @@ in
     environment.systemPackages = [ quadcastrgb ];
     services.udev.extraRules = ''
       SUBSYSTEM=="usb", ATTR{idVendor}=="03f0", ATTR{idProduct}=="0f8b", TAG+="uaccess"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="03f0", ATTR{idProduct}=="0d8b", TAG+="uaccess"
+      SUBSYSTEMS=="usb", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="0f8b", MODE="0660", GROUP="wheel"
     '';
 
     systemd.user.services.quadcastrgb = {

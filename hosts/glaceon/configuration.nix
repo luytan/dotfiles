@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -10,6 +11,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ../../modules/system
+    inputs.chainsaw.nixosModules.chainsaw
   ];
 
   # Hostname
@@ -52,6 +54,7 @@
   modules.services = {
     tlp = true;
   };
+  services.chainsaw.enable = true;
 
   system.stateVersion = "25.11";
 }

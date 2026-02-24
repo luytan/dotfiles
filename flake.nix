@@ -60,6 +60,10 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    chainsaw = {
+      url = "github:luytan/chainsaw";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

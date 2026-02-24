@@ -82,7 +82,7 @@
                     mountOptions = [
                       "subvol=games"
                       "rw"
-                      "compress=zstd:1"
+                      "compress=zstd:3"
                       "ssd"
                       "space_cache=v2"
                       "discard=async"

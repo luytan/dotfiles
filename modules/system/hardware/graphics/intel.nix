@@ -32,5 +32,8 @@ in
       "video"
       "render"
     ];
+    environment.systemPackages = with pkgs; [
+      nvtopPackages.intel
+    ];
   };
 }

@@ -30,5 +30,8 @@ in
     ];
 
     hardware.amdgpu.initrd.enable = true;
+    environment.systemPackages = with pkgs; [
+      nvtopPackages.amd
+    ];
   };
 }

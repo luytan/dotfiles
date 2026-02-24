@@ -17,5 +17,6 @@
     gparted
     e2fsprogs
     btrfs-progs
+    efibootmgr
   ];
 }

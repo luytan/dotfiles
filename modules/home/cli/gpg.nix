@@ -48,4 +48,7 @@
     enableFishIntegration = true;
     pinentry.package = pkgs.pinentry-qt;
   };
+  home.packages = with pkgs; [
+    yubikey-manager
+  ];
 }

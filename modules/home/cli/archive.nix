@@ -1,9 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    nixfmt
-    nil
-    nixd
-    nixfmt-tree
+    unzip
+    unrar-free
   ];
 }

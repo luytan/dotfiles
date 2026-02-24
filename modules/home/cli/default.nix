@@ -1,17 +1,13 @@
 {
   pkgs,
   lib,
-  config,
+  osConfig ? { },
   ...
 }:
-with lib;
 let
-  cfg = config.modules.cli;
+  isWsl = osConfig.wsl.enable or false;
 in
 {
-  options.modules.cli = {
-  };
-
   imports = [
     ./eza.nix
     ./fish.nix
@@ -20,5 +16,27 @@ in
     ./zellij.nix
     ./zoxide.nix
     ./fastfetch.nix
+    ./archive.nix
   ];
+  home.packages =
+    with pkgs;
+    [
+      tldr
+      bat
+      tldr
+      yazi
+      fzf
+      ripgrep
+      file
+      rsync
+      btop
+      htop
+      pwgen
+      lsof
+      vim
+      wget
+    ]
+    ++ lib.optionals (!isWsl) [
+      wl-clipboard
+    ];
 }

@@ -3,11 +3,14 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
+    mutableExtensionsDir = false;
+    profiles.default.extensions = with pkgs.vscode-marketplace-release; [
       enkia.tokyo-night
+      ni3rav.andromeda-night
       #catppuccin.catppuccin-vsc
       pkief.material-icon-theme
       jnoortheen.nix-ide
+      vue.volar
       #vscodevim.vim
       ms-azuretools.vscode-containers
       ms-python.python
@@ -15,6 +18,7 @@
       esbenp.prettier-vscode
       redhat.vscode-yaml
       rust-lang.rust-analyzer
+      tamasfe.even-better-toml
     ];
     profiles.default.userSettings = {
       "workbench.colorTheme" = "Tokyo Night";

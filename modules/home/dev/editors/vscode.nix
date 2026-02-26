@@ -11,6 +11,7 @@
       pkief.material-icon-theme
       jnoortheen.nix-ide
       vue.volar
+      foam.foam-vscode
       #vscodevim.vim
       ms-azuretools.vscode-containers
       ms-python.python

@@ -7,6 +7,7 @@
     filen-desktop
     mpv
     kdePackages.filelight
+    brave
   ];
   imports = [
     ./zen-browser.nix

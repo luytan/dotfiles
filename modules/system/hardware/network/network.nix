@@ -41,11 +41,9 @@ in
 
     services.firewalld = {
       enable = true;
+      package = pkgs.firewalld-gui;
     };
     networking.nftables.enable = true;
-    environment.systemPackages = [
-      pkgs.firewalld-gui
-    ];
     services.tailscale.enable = true;
   };
 }

@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, inputs, ... }:
 {
+
   boot = {
     kernelPackages = pkgs.linuxPackages_6_19;
     kernelParams = [
@@ -18,9 +19,10 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.consoleMode = "max";
       timeout = 0;
+      systemd-boot.enable = lib.mkForce false;
     };
     initrd = {
-      systemd.enable = false;
+      systemd.enable = true;
       verbose = false;
     };
     plymouth = {
@@ -32,8 +34,16 @@
       themePackages = with pkgs; [
         nixos-bgrt-plymouth
       ];
-
     };
+
+    # Lanzaboote
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
+
     tmp.useTmpfs = true;
   };
+
+  environment.systemPackages = [ pkgs.sbctl ];
 }

@@ -112,19 +112,6 @@
               };
               home-manager.users.${user} = import ./home.nix;
             }
-
-            # Lanzaboote / Secure Boot configuration
-            (
-              { pkgs, lib, ... }:
-              {
-                boot.loader.systemd-boot.enable = lib.mkForce false;
-                boot.lanzaboote = {
-                  enable = true;
-                  pkiBundle = "/var/lib/sbctl";
-                };
-                environment.systemPackages = [ pkgs.sbctl ];
-              }
-            )
           ];
         };
     in

@@ -4,7 +4,6 @@
     jetbrains.rust-rover
     jetbrains.goland
     jetbrains.clion
-    jetbrains-runner
   ];
   home.file.".config/JetBrains/RustRover2025.3/rustrover64.vmoptions".text =
     "-Dawt.toolkit.name=WLToolkit";

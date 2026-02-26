@@ -2,6 +2,7 @@
   description = "My NixOS configuration :3";
 
   inputs = {
+    flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-cisco.url = "github:NixOS/nixpkgs/pull/456650/head";
 
@@ -67,8 +68,8 @@
   };
 
   outputs =
-    {
-      self,
+    inputs@{
+      flake-parts,
       nixpkgs,
       nixpkgs-cisco,
       home-manager,
@@ -76,27 +77,23 @@
       disko,
       niri,
       ...
-    }@inputs:
+    }:
     let
-      system = "x86_64-linux";
+      supportedSystem = "x86_64-linux";
       lib = nixpkgs.lib;
-
       user = "luytan";
 
-      # other pkgs
       pkgs-cisco = import nixpkgs-cisco {
-        inherit system;
+        system = supportedSystem;
         config.allowUnfree = true;
       };
 
-      # Configuration
       mkSystem =
         host:
         lib.nixosSystem {
-          inherit system;
+          system = supportedSystem;
           specialArgs = {
-            inherit user;
-            inherit inputs;
+            inherit user inputs;
           };
           modules = [
             ./hosts/${host}/configuration.nix
@@ -114,12 +111,31 @@
             }
           ];
         };
-    in
-    {
+
       nixosConfigurations = {
         glaceon = mkSystem "glaceon";
         sylveon = mkSystem "sylveon";
         leafeon = mkSystem "leafeon";
+      };
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ supportedSystem ];
+
+      perSystem =
+        { pkgs, ... }:
+        {
+          formatter = pkgs.nixfmt;
+          checks = lib.mapAttrs (
+            host: configuration:
+            let
+              _ = configuration.config.system.build.toplevel.drvPath;
+            in
+            pkgs.runCommand "${host}-eval" { } "echo ok > $out"
+          ) nixosConfigurations;
+        };
+
+      flake = {
+        inherit nixosConfigurations;
       };
     };
 }

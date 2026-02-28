@@ -12,6 +12,7 @@
       jnoortheen.nix-ide
       vue.volar
       foam.foam-vscode
+      ms-vscode.cpptools
       #vscodevim.vim
       ms-azuretools.vscode-containers
       ms-python.python

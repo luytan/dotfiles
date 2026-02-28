@@ -17,6 +17,7 @@ in
     ./zoxide.nix
     ./fastfetch.nix
     ./archive.nix
+    ./irssi.nix
   ];
   home.packages =
     with pkgs;

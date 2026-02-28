@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -16,5 +16,14 @@
       cat = "bat";
       tree = "eza --tree --level=3";
     };
+    plugins = [
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
+    ];
   };
+  home.packages = with pkgs; [
+    grc
+  ];
 }

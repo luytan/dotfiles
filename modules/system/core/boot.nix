@@ -29,6 +29,7 @@
       enable = true;
       theme = "nixos-bgrt";
       extraConfig = ''
+        DeviceScale=1
         UseFirmwareBackground=false
       '';
       themePackages = with pkgs; [

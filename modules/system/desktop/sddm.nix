@@ -23,9 +23,9 @@
       "LoginScreen" = {
         background = "NierTitle3.jpg";
       };
-      #"LockScreen" = {
-      #  background = "kokomi96024.png";
-      #};
+      "LockScreen" = {
+        background = "NierTitle3.jpg";
+      };
     };
   };
   environment.systemPackages = [

@@ -33,6 +33,14 @@
   xdg = {
     enable = true;
   };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+    };
+  };
+
   home.sessionVariables = {
     EDITOR = "vim";
     TERMINAL = "konsole";

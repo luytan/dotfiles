@@ -33,6 +33,7 @@
       "editor.fontLigatures" = true;
       "explorer.confirmDragAndDrop" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
+      "redhat.telemetry.enabled" = false;
     };
   };
 }

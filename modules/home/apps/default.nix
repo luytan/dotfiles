@@ -8,6 +8,7 @@
     mpv
     kdePackages.filelight
     brave
+    vlc
   ];
   imports = [
     ./zen-browser.nix

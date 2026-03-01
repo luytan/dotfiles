@@ -12,7 +12,6 @@ in
     services.asusd = {
       enable = true;
       package = pkgs.asusctl;
-      enableUserService = true;
     };
     services.supergfxd.enable = false;
   };

@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  pkgs-vmware,
   ...
 }:
 let
@@ -10,7 +10,7 @@ in
 {
   config = lib.mkIf cfg.vmware {
     virtualisation.vmware.host.enable = true;
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs-vmware; [
       vmware-workstation
     ];
   };

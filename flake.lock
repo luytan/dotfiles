@@ -372,6 +372,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-vmware": {
+      "locked": {
+        "lastModified": 1772302518,
+        "narHash": "sha256-Bbea6qzb9EK9+01ODcawz2MEsKQv/g8VMAvmhxzwl04=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4fce4d008099f6f6a2af12cb48269dab2f8bd653",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/495055/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1771369470,
@@ -492,6 +508,7 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-cisco": "nixpkgs-cisco",
+        "nixpkgs-vmware": "nixpkgs-vmware",
         "noctalia": "noctalia",
         "rust-overlay": "rust-overlay_3",
         "silentSDDM": "silentSDDM",

@@ -5,6 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-cisco.url = "github:NixOS/nixpkgs/pull/456650/head";
+    nixpkgs-vmware.url = "github:NixOS/nixpkgs/pull/495055/head";
 
     # Home Manager
     home-manager = {
@@ -57,7 +58,7 @@
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
-   };
+    };
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +74,7 @@
       flake-parts,
       nixpkgs,
       nixpkgs-cisco,
+      nixpkgs-vmware,
       home-manager,
       lanzaboote,
       disko,
@@ -88,13 +90,17 @@
         system = supportedSystem;
         config.allowUnfree = true;
       };
+      pkgs-vmware = import nixpkgs-vmware {
+        system = supportedSystem;
+        config.allowUnfree = true;
+      };
 
       mkSystem =
         host:
         lib.nixosSystem {
           system = supportedSystem;
           specialArgs = {
-            inherit user inputs;
+            inherit user inputs pkgs-vmware;
           };
           modules = [
             ./hosts/${host}/configuration.nix

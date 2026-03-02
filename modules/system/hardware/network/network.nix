@@ -35,8 +35,16 @@ in
     };
     networking.firewall = {
       enable = true;
+      trustedInterfaces = [ "virbr0" ];
       backend = "firewalld";
       checkReversePath = "loose";
+    };
+    networking.nat = {
+      enable = true;
+
+      internalInterfaces = [
+        "virbr0"
+      ];
     };
 
     services.firewalld = {

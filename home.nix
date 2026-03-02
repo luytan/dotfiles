@@ -39,11 +39,22 @@
       name = "Breeze-Dark";
       package = pkgs.kdePackages.breeze-gtk;
     };
+    iconTheme = {
+      name = "breeze-dark";
+      package = pkgs.kdePackages.breeze-icons;
+    };
+  };
+  home.pointerCursor = {
+    enable = true;
+    name = "Catppuccin-Macchiato-Mauve-Cursors";
+    size = 24;
+    package = pkgs.catppuccin-cursors.macchiatoMauve;
+    gtk.enable = true;
   };
 
   home.sessionVariables = {
     EDITOR = "vim";
-    TERMINAL = "konsole";
+    TERMINAL = "ghostty";
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };

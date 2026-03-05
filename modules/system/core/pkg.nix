@@ -18,5 +18,6 @@
     e2fsprogs
     btrfs-progs
     efibootmgr
+    ntfs3g
   ];
 }

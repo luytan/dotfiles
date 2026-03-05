@@ -6,7 +6,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-cisco.url = "github:NixOS/nixpkgs/pull/456650/head";
     nixpkgs-vmware.url = "github:NixOS/nixpkgs/pull/495055/head";
-
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -39,7 +38,7 @@
       url = "github:vicinaehq/vicinae";
     };
     lmstudio = {
-      url = "github:tomsch/lmstudio-nix";
+      url = "github:luytan/lmstudio-nix";
     };
     niri = {
       url = "github:sodiboo/niri-flake";

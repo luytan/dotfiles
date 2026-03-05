@@ -9,7 +9,7 @@ let
   cfg = config.modules.desktop;
   niriInstance = lib.getExe (
     pkgs.writeShellScriptBin "niri-instance" ''
-      /run/current-system/sw/bin/niri --session
+      exec ${pkgs.niri-unstable}/bin/niri --session
     ''
   );
 

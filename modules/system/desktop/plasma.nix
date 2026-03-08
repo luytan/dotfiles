@@ -10,7 +10,7 @@ in
 {
   imports = [ ./pkgs ];
   config = lib.mkIf cfg.plasma {
-    nixos.pkgs.wallpaper-engine-kde-plugin.enable = lib.mkDefault true;
+    nixos.pkgs.wallpaper-engine-kde-plugin.enable = lib.mkDefault false;
     environment.systemPackages = [
       (pkgs.catppuccin-kde.override {
         flavour = [ "macchiato" ];

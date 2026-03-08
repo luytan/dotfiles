@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./vicinae.nix
+    #./vicinae.nix
     ./niri
   ];
 }

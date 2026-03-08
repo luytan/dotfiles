@@ -18,7 +18,6 @@
   home.packages = [
     #    pkgs-cisco.ciscoPacketTracer9
     #inputs.librepods.packages.${pkgs.system}.default
-    pkgs.gearlever
   ];
   fonts.fontconfig.enable = true;
   home.file = {

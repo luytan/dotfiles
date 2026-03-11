@@ -12,6 +12,10 @@
     ../../modules/system
   ];
 
+  environment = {
+    sessionVariables.WAYLANDDRV_PRIMARY_MONITOR = "DP-2";
+  };
+
   # Hostname
   networking.hostName = "sylveon";
 

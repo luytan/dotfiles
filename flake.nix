@@ -62,8 +62,8 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    chainsaw = {
-      url = "github:luytan/chainsaw";
+    cardwire = {
+      url = "github:luytan/cardwire";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

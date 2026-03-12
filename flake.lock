@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "chainsaw": {
+    "cardwire": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
@@ -9,16 +9,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1771953937,
-        "narHash": "sha256-3g9BOditSnp3n1EfnGzyqNzqPuI+jSokW3RH4WBGZKE=",
+        "lastModified": 1772744828,
+        "narHash": "sha256-7ApETQ98XaSKlUcYEOMmLYWxoIGMPCqkRa8a/nTVIA0=",
         "owner": "luytan",
-        "repo": "chainsaw",
-        "rev": "873c58ebe912ad799d7531b6bb0b7280d7e98e77",
+        "repo": "cardwire",
+        "rev": "8829858eae7c7399130c0d3a10d239488a8c1dd2",
         "type": "github"
       },
       "original": {
         "owner": "luytan",
-        "repo": "chainsaw",
+        "repo": "cardwire",
         "type": "github"
       }
     },
@@ -520,7 +520,7 @@
     },
     "root": {
       "inputs": {
-        "chainsaw": "chainsaw",
+        "cardwire": "cardwire",
         "disko": "disko",
         "ekphos": "ekphos",
         "flake-parts": "flake-parts",
@@ -545,11 +545,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1771038269,
-        "narHash": "sha256-TygYZ7JhnJbRoWOk7d5HaA/GhEVCvtRruN7TqaN9s/c=",
+        "lastModified": 1772161521,
+        "narHash": "sha256-HmbcapTlcRqtryLUaJhH8t1mz6DaSJT+nxvWIl2bIPU=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "d7a86c8a4df49002446737603a3e0d7ef91a9637",
+        "rev": "9b2965450437541d25fde167d8bebfd01c156cef",
         "type": "github"
       },
       "original": {

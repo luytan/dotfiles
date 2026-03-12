@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ../../modules/system
-    inputs.chainsaw.nixosModules.chainsaw
+    inputs.cardwire.nixosModule.x86_64-linux
   ];
 
   # Hostname
@@ -54,7 +54,7 @@
   modules.services = {
     tlp = true;
   };
-  services.chainsaw.enable = true;
+  services.cardwire.enable = true;
 
   system.stateVersion = "25.11";
 }

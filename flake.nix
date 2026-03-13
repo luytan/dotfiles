@@ -71,6 +71,10 @@
       url = "github:caelestia-dots/cli/pull/98/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.caelestia-cli.follows = "caelestia-cli";
+    };
   };
 
   outputs =

@@ -64,6 +64,13 @@
       url = "github:luytan/cardwire";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli/pull/98/head";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

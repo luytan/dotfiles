@@ -50,6 +50,7 @@
   modules.desktop = {
     plasma = true;
     niri = true;
+    hyprland = true;
   };
 
   # Services

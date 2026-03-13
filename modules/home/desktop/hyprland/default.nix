@@ -2,7 +2,7 @@
 
 {
   imports = lib.optionals (osConfig.modules.desktop.hyprland or false) [
-    #./hyprland.nix
+    ./hyprland
     ./caelestia.nix
   ];
 }

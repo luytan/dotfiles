@@ -4,7 +4,6 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-cisco.url = "github:NixOS/nixpkgs/pull/456650/head";
     nixpkgs-vmware.url = "github:NixOS/nixpkgs/pull/495055/head";
     # Home Manager
     home-manager = {
@@ -72,7 +71,6 @@
     inputs@{
       flake-parts,
       nixpkgs,
-      nixpkgs-cisco,
       nixpkgs-vmware,
       home-manager,
       lanzaboote,
@@ -84,11 +82,6 @@
       supportedSystem = "x86_64-linux";
       lib = nixpkgs.lib;
       user = "luytan";
-
-      pkgs-cisco = import nixpkgs-cisco {
-        system = supportedSystem;
-        config.allowUnfree = true;
-      };
       pkgs-vmware = import nixpkgs-vmware {
         system = supportedSystem;
         config.allowUnfree = true;
@@ -111,7 +104,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs pkgs-cisco user;
+                inherit inputs user;
               };
               home-manager.users.${user} = import ./home.nix;
             }

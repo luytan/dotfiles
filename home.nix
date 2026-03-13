@@ -2,7 +2,6 @@
   config,
   pkgs,
   inputs,
-  pkgs-cisco,
   user,
   ...
 }:
@@ -16,7 +15,6 @@
   ];
 
   home.packages = [
-    #    pkgs-cisco.ciscoPacketTracer9
     #inputs.librepods.packages.${pkgs.system}.default
   ];
   fonts.fontconfig.enable = true;

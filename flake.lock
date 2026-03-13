@@ -325,22 +325,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-cisco": {
-      "locked": {
-        "lastModified": 1769019024,
-        "narHash": "sha256-/5ezrjC2ll6IX74n9N5Hm3ZUPQ5KmSCDIZlZK0KVihc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c4dbc4019150b6fbbfe2392872dbd8a4894e0fe0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/456650/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1772328832,
@@ -368,22 +352,6 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-25.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-vmware": {
-      "locked": {
-        "lastModified": 1772302518,
-        "narHash": "sha256-Bbea6qzb9EK9+01ODcawz2MEsKQv/g8VMAvmhxzwl04=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "4fce4d008099f6f6a2af12cb48269dab2f8bd653",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/495055/head",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -530,8 +498,6 @@
         "niri": "niri",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-cisco": "nixpkgs-cisco",
-        "nixpkgs-vmware": "nixpkgs-vmware",
         "noctalia": "noctalia",
         "rust-overlay": "rust-overlay_3",
         "silentSDDM": "silentSDDM",

@@ -4,7 +4,7 @@ with lib;
   wayland.windowManager.hyprland.settings = {
     # App
     "$terminal" = "ghostty";
-    "$browser" = "zen-browser";
+    "$browser" = "zen-beta";
     "$editor" = "vim";
     "$fileExplorer" = "dolphin";
 

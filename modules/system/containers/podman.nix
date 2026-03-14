@@ -24,6 +24,7 @@ in
       distrobox
       podman-compose
       podman-desktop
+      distroshelf
     ];
   };
 }

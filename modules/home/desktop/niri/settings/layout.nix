@@ -1,8 +1,8 @@
 { ... }:
 {
   programs.niri.settings.layout = {
-    gaps = 16;
-    center-focused-column = "never";
+    gaps = 9;
+    center-focused-column = "on-overflow";
     default-column-width.proportion = 0.5;
 
     focus-ring = {

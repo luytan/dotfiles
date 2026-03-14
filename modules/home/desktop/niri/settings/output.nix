@@ -20,7 +20,6 @@
             x = 0;
             y = 0;
           };
-          focus-at-startup = true;
         };
 
         "DP-2" = {
@@ -34,6 +33,7 @@
             x = 2560;
             y = 0;
           };
+          focus-at-startup = true;
         };
 
         "DP-3" = {

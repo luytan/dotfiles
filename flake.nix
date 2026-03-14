@@ -75,6 +75,10 @@
       url = "github:caelestia-dots/shell";
       inputs.caelestia-cli.follows = "caelestia-cli";
     };
+    niri-scratchpad-flake = {
+  	  url = "github:gvolpe/niri-scratchpad";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   };
 
   outputs =

@@ -20,6 +20,16 @@
   programs.niri = {
     settings = {
       spawn-at-startup = [
+        {
+          command = [
+            "${pkgs.dbus}/bin/dbus-update-activation-environment"
+            "--systemd"
+            "DISPLAY"
+            "WAYLAND_DISPLAY"
+            "XDG_CURRENT_DESKTOP"
+            "XDG_SESSION_ID"
+          ];
+        }
       ];
 
       hotkey-overlay.skip-at-startup = true;

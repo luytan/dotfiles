@@ -20,6 +20,6 @@
     enable = true;
     package = null;
     portalPackage = null;
-    systemd.enable = false;
+    systemd.enable = true;
   };
 }

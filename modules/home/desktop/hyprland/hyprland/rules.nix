@@ -1,21 +1,17 @@
-{ lib,... }:
+{ lib, osConfig ? {}, ... }:
 with lib;
+let
+  isSylveon = (osConfig.networking.hostName or "") == "sylveon";
+in
 {
   wayland.windowManager.hyprland.settings = {
-    # ═══════════════════════════════════════════════════════════════════════════
-    # Window Rules (using new v0.45+ match: syntax)
-    # ═══════════════════════════════════════════════════════════════════════════
     windowrule = [
-      # ─────────────────────────────────────────────────────────────────────────
       # Global Rules
-      # ─────────────────────────────────────────────────────────────────────────
       "opacity $windowOpacity override, match:fullscreen false"
       "opaque true, match:class foot|equibop|org\\.quickshell|imv|swappy|ghostty"
       "center true, match:float true, match:xwayland false"
 
-      # ─────────────────────────────────────────────────────────────────────────
       # Float Rules
-      # ─────────────────────────────────────────────────────────────────────────
       "float true, match:class guifetch"
       "float true, match:class yad"
       "float true, match:class zenity"
@@ -31,9 +27,7 @@ with lib;
       "float true, match:class pavucontrol"
       "float true, match:class nm-connection-editor"
 
-      # ─────────────────────────────────────────────────────────────────────────
       # Float, Resize and Center
-      # ─────────────────────────────────────────────────────────────────────────
       "float true, match:class foot, match:title nmtui"
       "size 60% 70%, match:class foot, match:title nmtui"
       "center 1, match:class foot, match:title nmtui"
@@ -50,18 +44,14 @@ with lib;
       "size 50% 60%, match:class nwg-look"
       "center 1, match:class nwg-look"
 
-      # ─────────────────────────────────────────────────────────────────────────
       # Special Workspaces
-      # ─────────────────────────────────────────────────────────────────────────
       "workspace special:sysmon, match:class btop"
       "workspace special:music, match:class feishin|Spotify|Supersonic|Cider"
       "workspace special:music, match:initial_title Spotify( Free)?"
       "workspace special:communication, match:class discord|equibop|vesktop|whatsapp"
       "workspace special:todo, match:class Todoist"
 
-      # ─────────────────────────────────────────────────────────────────────────
       # Dialogs
-      # ─────────────────────────────────────────────────────────────────────────
       "float true, match:title (Select|Open)( a)? (File|Folder)(s)?"
       "float true, match:title File (Operation|Upload)( Progress)?"
       "float true, match:title .* Properties"
@@ -70,51 +60,42 @@ with lib;
       "float true, match:title Save As"
       "float true, match:title Library"
 
-      # ─────────────────────────────────────────────────────────────────────────
       # Picture in Picture
-      # ─────────────────────────────────────────────────────────────────────────
       "move 100%-w-2% 100%-w-3%, match:title Picture(-| )in(-| )[Pp]icture"
       "keep_aspect_ratio true, match:title Picture(-| )in(-| )[Pp]icture"
       "float true, match:title Picture(-| )in(-| )[Pp]icture"
       "pin true, match:title Picture(-| )in(-| )[Pp]icture"
 
-      # ─────────────────────────────────────────────────────────────────────────
       # Steam
-      # ─────────────────────────────────────────────────────────────────────────
       "rounding 10, match:class steam"
       "float true, match:title Friends List, match:class steam"
       "immediate true, match:class steam_app_[0-9]+"
       "idle_inhibit always, match:class steam_app_[0-9]+"
 
-      # ─────────────────────────────────────────────────────────────────────────
-      # ATLauncher Console
-      # ─────────────────────────────────────────────────────────────────────────
-      "float true, match:class com-atlauncher-App, match:title ATLauncher Console"
-
-      # ─────────────────────────────────────────────────────────────────────────
-      # Autodesk Fusion 360
-      # ─────────────────────────────────────────────────────────────────────────
-      "no_blur true, match:title Fusion360|(Marking Menu), match:class fusion360\\.exe"
-
-      # ─────────────────────────────────────────────────────────────────────────
       # XWayland Popups
-      # ─────────────────────────────────────────────────────────────────────────
       "no_dim true, match:xwayland 1, match:title win[0-9]+"
       "no_shadow true, match:xwayland 1, match:title win[0-9]+"
       "rounding 10, match:xwayland 1, match:title win[0-9]+"
     ];
 
-    # ═══════════════════════════════════════════════════════════════════════════
     # Workspace Rules
-    # ═══════════════════════════════════════════════════════════════════════════
     workspace = [
       "w[tv1]s[false], gapsout:$singleWindowGapsOut"
       "f[1]s[false], gapsout:$singleWindowGapsOut"
+    ] ++ optionals isSylveon [
+      "1, monitor:DP-2, default:true"
+      "2, monitor:DP-2"
+      "3, monitor:DP-2"
+      "4, monitor:DP-2"
+      "5, monitor:DP-2"
+      "6, monitor:DP-2"
+      "7, monitor:DP-2"
+      "8, monitor:DP-2"
+      "9, monitor:DP-2"
+      "10, monitor:DP-2"
     ];
 
-    # ═══════════════════════════════════════════════════════════════════════════
     # Layer Rules
-    # ═══════════════════════════════════════════════════════════════════════════
     layerrule = [
       # Utilities
       "animation fade, match:namespace hyprpicker"

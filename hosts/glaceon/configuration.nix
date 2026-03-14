@@ -48,6 +48,7 @@
   modules.desktop = {
     plasma = true;
     niri = true;
+    hyprland = false;
   };
 
   # Services

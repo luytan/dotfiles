@@ -1,4 +1,4 @@
-{ lib,config,... }:
+{ lib,config,pkgs,... }:
 with lib;
 {
   wayland.windowManager.hyprland.settings = {
@@ -25,7 +25,7 @@ with lib;
     "$blurPopups" = "true";
     "$blurInputMethods" = "true";
     "$blurSize" = "8";
-    "$blurPasses" = "2";
+    "$blurPasses" = "1";
     "$blurXray" = "false";
 
     # Shadow

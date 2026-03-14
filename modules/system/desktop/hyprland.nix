@@ -28,10 +28,10 @@ in
       app2unit
       xdg-terminal-exec
       playerctl
+      gnome-keyring
     ];
     environment = {
       sessionVariables.APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
-      sessionVariables.QT_QPA_PLATFORMTHEME = "qtengine";
       sessionVariables.QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       sessionVariables.QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };

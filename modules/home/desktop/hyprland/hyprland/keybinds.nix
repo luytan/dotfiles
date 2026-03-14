@@ -49,7 +49,6 @@ with lib;
     bindr = Ctrl+Super+Alt, R, exec, qs -c caelestia kill; sleep .1; caelestia shell -d
 
     # Go to workspace #
-    $wsaction = ~/.config/hypr/scripts/wsaction.fish
     bind = $kbGoToWs, 1, exec, $wsaction workspace 1
     bind = $kbGoToWs, 2, exec, $wsaction workspace 2
     bind = $kbGoToWs, 3, exec, $wsaction workspace 3

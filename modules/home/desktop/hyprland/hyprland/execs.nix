@@ -4,7 +4,7 @@ with lib;
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       # Keyring and Auth
-      "gnome-keyring-daemon --start --components=secrets"
+      "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --components=secrets"
       "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
 
       # Clipboard History
@@ -21,9 +21,7 @@ with lib;
       # Media
       "mpris-proxy"
 
-      # Caelestia Shell
-      "caelestia resizer -d"
-      "caelestia shell -d"
+
     ];
 
     # Commands that run on reload too

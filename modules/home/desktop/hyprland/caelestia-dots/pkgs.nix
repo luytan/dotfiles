@@ -2,6 +2,13 @@
 {
   home.packages = with pkgs; [
     brightnessctl
+    ddcutil
+    lm_sensors
+    swappy
+    libqalculate
+    material-symbols
+    pavucontrol
+    rubik
     thunar
     cliphist
     adw-gtk3

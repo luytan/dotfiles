@@ -2,7 +2,6 @@
   config,
   pkgs,
   inputs,
-  pkgs-cisco,
   user,
   ...
 }:
@@ -16,7 +15,6 @@
   ];
 
   home.packages = [
-    #    pkgs-cisco.ciscoPacketTracer9
     #inputs.librepods.packages.${pkgs.system}.default
   ];
   fonts.fontconfig.enable = true;
@@ -32,23 +30,13 @@
   xdg = {
     enable = true;
   };
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Breeze-Dark";
-      package = pkgs.kdePackages.breeze-gtk;
-    };
-    iconTheme = {
-      name = "breeze-dark";
-      package = pkgs.kdePackages.breeze-icons;
-    };
-  };
   home.pointerCursor = {
     enable = true;
-    name = "Catppuccin-Macchiato-Mauve-Cursors";
+    name = "catppuccin-macchiato-mauve-cursors";
     size = 24;
     package = pkgs.catppuccin-cursors.macchiatoMauve;
     gtk.enable = true;
+    hyprcursor.enable = true;
   };
 
   home.sessionVariables = {

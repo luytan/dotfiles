@@ -20,12 +20,18 @@ in
       default = false;
       description = "Enable Niri compositor";
     };
+    hyprland = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Hyprland compositor";
+    };
   };
 
   imports = [
     ./plasma.nix
     ./niri.nix
     ./sddm.nix
+    ./hyprland.nix
   ];
 
   config = {

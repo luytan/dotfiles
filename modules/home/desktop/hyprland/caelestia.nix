@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, osConfig ? {}, ... }:
 {
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
@@ -15,6 +15,7 @@
     settings = {
       # General apps configuration
       general = {
+        excludedScreens = if (osConfig.networking.hostName or "") == "sylveon" then [ "^(?!DP-2$).*$" ] else [ ];
         apps = {
           terminal = [ "ghostty" ];
           audio = [ "pavucontrol" ];

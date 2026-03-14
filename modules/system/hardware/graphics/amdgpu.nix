@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }:
 let
@@ -33,6 +34,10 @@ in
     environment.systemPackages = with pkgs; [
       nvtopPackages.amd
       vulkan-tools
+    ];
+    users.users.${user}.extraGroups = [
+    "video"
+    "render"
     ];
   };
 }

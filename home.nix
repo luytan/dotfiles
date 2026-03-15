@@ -12,11 +12,22 @@
   home.stateVersion = "25.11";
   imports = [
     ./modules/home/default.nix
+    inputs.nix4nvchad.homeManagerModules.default
   ];
 
   home.packages = [
     #inputs.librepods.packages.${pkgs.system}.default
   ];
+  programs.nvchad = {
+    enable = true;
+    extraPackages = with pkgs; [
+      docker-compose-language-service
+      nixd
+      gopls
+    ];
+    hm-activation = true;
+    backup = false;
+  };
   fonts.fontconfig.enable = true;
   home.file = {
   };

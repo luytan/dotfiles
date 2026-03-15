@@ -76,9 +76,14 @@
       inputs.caelestia-cli.follows = "caelestia-cli";
     };
     niri-scratchpad-flake = {
-  	  url = "github:gvolpe/niri-scratchpad";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+      url = "github:gvolpe/niri-scratchpad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    copilot-cli.url = "github:scarisey/copilot-cli-flake";
   };
 
   outputs =

@@ -6,6 +6,7 @@
     goverlay
     prismlauncher
     lutris
+    heroic
   ];
   xdg.desktopEntries = {
     gamescope = {

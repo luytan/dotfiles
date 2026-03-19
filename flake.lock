@@ -736,11 +736,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1773222306,
-        "narHash": "sha256-iIkLy7NEqKKUxDR6QW6B/bq2k0FaQ5I6T0G5dKSzqW8=",
+        "lastModified": 1773908986,
+        "narHash": "sha256-wAIbS0+ZGUtip0FDwTn44Nj5D5K2LKEn6IfyRFVtqk0=",
         "owner": "luytan",
         "repo": "lmstudio-nix",
-        "rev": "a84b7c2ea391eaf438d63e783c378a4c465ea484",
+        "rev": "cfa95d4f8f929177192b5819ceb890869ade06e1",
         "type": "github"
       },
       "original": {

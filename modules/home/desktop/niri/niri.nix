@@ -18,6 +18,11 @@
     wlsunset
     nautilus
   ];
+  dconf.settings = {
+    "org/gnome/desktop/interface/color-scheme" = {
+      color-scheme = "prefer-dark";
+    };
+  };
   programs.niri = {
     settings = {
       spawn-at-startup = [

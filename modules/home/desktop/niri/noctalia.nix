@@ -222,7 +222,7 @@
         favorites = [ ];
       };
       appLauncher = {
-        enableClipboardHistory = false;
+        enableClipboardHistory = true;
         autoPasteClipboard = false;
         enableClipPreview = true;
         clipboardWrapText = true;
@@ -230,7 +230,7 @@
         clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
         position = "center";
         pinnedApps = [ ];
-        useApp2Unit = false;
+        useApp2Unit = true;
         sortByMostUsed = true;
         terminalCommand = "alacritty -e";
         customLaunchPrefixEnabled = false;

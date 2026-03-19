@@ -16,6 +16,7 @@
     python3
     evolution-data-server
     wlsunset
+    nautilus
   ];
   programs.niri = {
     settings = {

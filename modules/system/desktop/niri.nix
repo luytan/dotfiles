@@ -7,12 +7,6 @@
 }:
 let
   cfg = config.modules.desktop;
-  niriInstance = lib.getExe (
-    pkgs.writeShellScriptBin "niri-instance" ''
-      exec ${pkgs.niri-unstable}/bin/niri --session
-    ''
-  );
-
 in
 {
   config = lib.mkIf cfg.niri {
@@ -26,17 +20,6 @@ in
       xdg-terminal-exec
       playerctl
     ];
-    programs.uwsm = {
-      enable = true;
-      package = pkgs.uwsm;
-      waylandCompositors = {
-        niri = {
-          prettyName = "Niri";
-          comment = "Niri compositor managed by UWSM";
-          binPath = niriInstance;
-        };
-      };
-    };
     xdg.portal = {
       enable = true;
       extraPortals = [

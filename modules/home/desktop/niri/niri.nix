@@ -18,10 +18,40 @@
     wlsunset
     nautilus
   ];
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        ignore_dbus_inhibit = true;
+        lock_cmd = "noctalia-shell ipc call lockScreen lock";
+        before_sleep_cmd = "noctalia-shell ipc call lockScreen lock";
+        inhibit_sleep = 1;
+      };
+
+      listener = [
+        {
+          timeout = 900;
+          on-timeout = "noctalia-shell ipc call lockScreen lock";
+        }
+      ];
+    };
+  };
   dconf.settings = {
-    "org/gnome/desktop/interface/color-scheme" = {
+    "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
+  };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+  };
+  qt = {
+    enable = true;
+    platformTheme.name = "adwaita-dark";
+    #style = "-dark";
   };
   programs.niri = {
     settings = {

@@ -14,7 +14,8 @@
 
     mouse = {
       # natural-scroll = true;
-      "accel-speed" = 0;
+      "accel-speed" = 0.2;
+      "accel-profile" = "flat";
     };
     focus-follows-mouse.enable = true;
     warp-mouse-to-focus.enable = true;

@@ -46,7 +46,7 @@
 
   # Desktop
   modules.desktop = {
-    plasma = true;
+    plasma = false;
     niri = true;
     hyprland = false;
   };

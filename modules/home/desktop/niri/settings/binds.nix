@@ -42,6 +42,26 @@
     };
 
     # Brightness key mappings for brightnessctl.
+    "XF86KbdBrightnessDown" = {
+      action.spawn = [
+        "brightnessctl"
+        "--device=asus::kbd_backlight"
+        "set"
+        "1-"
+      ];
+      allow-when-locked = true;
+    };
+    "XF86KbdBrightnessUp" = {
+      action.spawn = [
+        "brightnessctl"
+        "--device=asus::kbd_backlight"
+        "set"
+        "+1"
+      ];
+      allow-when-locked = true;
+    };
+
+    # Brightness key mappings for brightnessctl.
     "XF86MonBrightnessUp" = {
       action.spawn = [
         "brightnessctl"

@@ -1,9 +1,24 @@
 { pkgs, ... }:
+let
+  bobthefish = pkgs.fetchFromGitHub {
+    owner = "oh-my-fish";
+    repo = "theme-bobthefish";
+    rev = "c5efbe05aed81b201454c0ae1190ba91ea1970ac";
+    hash = "sha256-12Xd43vy6qQILV/Q5BeoGaul6DsQv5OloCPLXwR6KNU=";
+  };
+in
 {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      set fish_greeting
+      set -g fish_greeting
+      set -g theme_powerline_fonts yes
+      set -g theme_nerd_fonts yes
+      set -g theme_display_git yes
+      set -g theme_display_git_dirty yes
+      set -g theme_display_cmd_duration yes
+      set -g theme_display_date no
+      set -g theme_color_scheme gruvbox
       zoxide init fish | source
     '';
     shellAliases = {
@@ -19,6 +34,10 @@
       {
         name = "grc";
         src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "bobthefish";
+        src = bobthefish;
       }
     ];
   };

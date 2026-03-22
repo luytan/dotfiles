@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  osConfig ? null,
   ...
 }:
 
@@ -45,6 +46,21 @@
           variable-refresh-rate = true;
           position = {
             x = 5120;
+            y = 0;
+          };
+        };
+      }
+      // lib.optionalAttrs (osConfig != null && osConfig.networking.hostName == "glaceon") {
+        "eDP-2" = {
+          mode = {
+            width = 2560;
+            height = 1600;
+            refresh = 120.000;
+          };
+          scale = 1.5;
+          variable-refresh-rate = true;
+          position = {
+            x = 0;
             y = 0;
           };
         };

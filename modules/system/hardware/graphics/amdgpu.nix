@@ -22,12 +22,11 @@ in
       extraPackages = with pkgs; [
         libva
         libva-utils
-        rocmPackages.clr.icd # OpenCL
+        rocmPackages.clr.icd
       ];
     };
     boot.kernelParams = [
-      "amdgpu.dpm=1" # Enable dynamic power management
-      "pcie_aspm=force" # Force PCIe Active State Power Management
+      "amdgpu.dpm=1"
     ];
 
     hardware.amdgpu.initrd.enable = true;

@@ -18,6 +18,7 @@ in
     ./fastfetch.nix
     ./archive.nix
     ./irssi.nix
+    ./direnv.nix
   ];
   home.packages =
     with pkgs;

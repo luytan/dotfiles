@@ -10,5 +10,6 @@
     ./services.nix
     ./user.nix
     ./zram.nix
+    ./security.nix
   ];
 }

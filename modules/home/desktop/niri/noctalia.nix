@@ -9,6 +9,14 @@
       ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
     };
   };
+  home.file.".cache/noctalia/wallpapers.json" = {
+    text = builtins.toJSON {
+      defaultWallpaper = "/home/luytan/.wall";
+      wallpapers = {
+        "eDP-2" = "/home/luytan/.wall";
+      };
+    };
+  };
   programs.noctalia-shell = {
     enable = true;
     settings = {
@@ -453,8 +461,8 @@
         enableDdcSupport = false;
       };
       colorSchemes = {
-        useWallpaperColors = false;
-        predefinedScheme = "Tokyo Night";
+        useWallpaperColors = true;
+        predefinedScheme = "";
         darkMode = true;
         schedulingMode = "off";
         manualSunrise = "06:30";
@@ -467,7 +475,7 @@
         enableUserTheming = false;
       };
       nightLight = {
-        enabled = false;
+        enabled = true;
         forced = false;
         autoSchedule = true;
         nightTemp = "4000";

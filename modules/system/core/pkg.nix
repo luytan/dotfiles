@@ -19,5 +19,6 @@
     btrfs-progs
     efibootmgr
     ntfs3g
+    xlsclients
   ];
 }

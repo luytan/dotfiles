@@ -20,6 +20,5 @@ in
     environment.systemPackages = with pkgs; [
       easyeffects
     ];
-    security.rtkit.enable = true;
   };
 }

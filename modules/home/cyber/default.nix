@@ -27,5 +27,6 @@ in
       wireshark
       ghidra-bin
       burpsuite
+      bruno
     ];
 }

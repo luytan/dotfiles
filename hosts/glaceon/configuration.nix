@@ -22,7 +22,7 @@
   # Hardware
   modules.hardware = {
     platform.asusctl = true;
-    peripherals.razer = true;
+    peripherals.razer = false;
     graphics.amdgpu = true;
   };
 

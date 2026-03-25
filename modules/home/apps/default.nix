@@ -11,6 +11,7 @@
     vlc
   ];
   imports = [
+    ./alacritty.nix
     ./zen-browser.nix
     ./ghostty.nix
     ./wine.nix

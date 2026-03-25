@@ -57,8 +57,8 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "vim";
-    TERMINAL = "ghostty";
+    EDITOR = "nvim";
+    TERMINAL = "alacritty";
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };

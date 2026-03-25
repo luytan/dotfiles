@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }:
 {
@@ -16,15 +17,26 @@
     python3
     evolution-data-server
     wlsunset
-    nautilus
   ];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = "org.kde.dolphin.desktop";
+    };
+  };
+
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    configPackages = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "gtk";
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
+    config.niri = {
+      "org.freedesktop.impl.portal.FileChooser" = "gtk";
+    };
   };
+
   services.hypridle = {
     enable = true;
     settings = {
@@ -43,6 +55,7 @@
       ];
     };
   };
+  # Dark theme
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
@@ -54,7 +67,24 @@
       name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
     };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+    cursorTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+    gtk4.theme = config.gtk.theme;
   };
+  home.sessionVariables.GTK_THEME = "Adwaita-dark";
+
   qt = {
     enable = true;
     platformTheme.name = "adwaita-dark";

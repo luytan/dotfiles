@@ -19,6 +19,11 @@ in
       app2unit
       xdg-terminal-exec
       playerctl
+      kdePackages.qtsvg
+      kdePackages.dolphin
+      kdePackages.kio
+      kdePackages.kio-fuse
+      kdePackages.kio-extras
     ];
     xdg.portal = {
       enable = true;

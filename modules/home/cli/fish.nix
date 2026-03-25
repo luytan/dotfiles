@@ -25,6 +25,8 @@ in
       nix-rebuild = "nh os switch -H $(hostname)";
       nix-rebuild-boot = "nh os boot -H $(hostname)";
       nix-clean = "nix-collect-garbage -d";
+      niri-low = "niri msg output 'Thermotrex Corporation TL140ADXP01 Unknown' mode 1920x1200@60.000";
+      niri-high = "niri msg output 'Thermotrex Corporation TL140ADXP01 Unknown' mode 2560x1600@120.000";
       cd = "z";
       cls = "clear";
       cat = "bat";

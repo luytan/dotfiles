@@ -20,5 +20,6 @@
     efibootmgr
     ntfs3g
     xlsclients
+    git
   ];
 }

@@ -9,7 +9,7 @@ let
   cfg = config.modules.desktop;
 in
 {
-  config = lib.mkIf cfg.hyprland {
+  config = lib.mkIf cfg.hyprland.enable {
     programs.hyprland = {
       enable = true;
       withUWSM = true;
@@ -35,5 +35,10 @@ in
       sessionVariables.QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       sessionVariables.QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
+    fonts.packages = with pkgs; [
+      rubik
+      nerd-fonts.ubuntu
+      nerd-fonts.jetbrains-mono
+    ];
   };
 }

@@ -1,6 +1,6 @@
-{ ... }:
+{ osConfig, pkgs, ... }:
 {
-  imports = [
+  imports = lib.optionals (osConfig.modules.desktop.hyprland.shell == "caelestia" or false) [
     ./general.nix
     ./variable.nix
     ./animations.nix
@@ -19,7 +19,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
-    portalPackage = null;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland ;
     systemd.enable = true;
   };
 }

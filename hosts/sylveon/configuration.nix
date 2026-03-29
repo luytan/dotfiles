@@ -50,9 +50,12 @@
   modules.desktop = {
     plasma = true;
     niri = {
-      enable = true;
+      enable = false;
     };
-    hyprland = false;
+    hyprland = {
+      enable = false;
+      shell = "illogical";
+    };
   };
 
   # Services

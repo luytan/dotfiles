@@ -67,13 +67,9 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli/pull/98/head";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
-      inputs.caelestia-cli.follows = "caelestia-cli";
+      inputs.caelestia-cli.follows = "nixpkgs";
     };
     niri-scratchpad-flake = {
       url = "github:gvolpe/niri-scratchpad";
@@ -84,6 +80,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     copilot-cli.url = "github:scarisey/copilot-cli-flake";
+    illogical-flake = {
+      url = "github:luytan/illogical-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

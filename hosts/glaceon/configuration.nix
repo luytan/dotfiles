@@ -49,7 +49,8 @@
     plasma = false;
     niri = {
       enable = true;
-    }
+      shell = "noctalia";
+    };
     hyprland = false;
   };
 

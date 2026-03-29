@@ -1,8 +1,8 @@
 { osConfig, lib, ... }:
 
 {
-  imports = lib.optionals (osConfig.modules.desktop.hyprland or false) [
+  imports = lib.optionals (osConfig.modules.desktop.hyprland.enable or false) [
     ./hyprland
-    ./caelestia.nix
+    ./shell
   ];
 }

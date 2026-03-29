@@ -18,6 +18,7 @@
   home.packages = [
     #inputs.librepods.packages.${pkgs.system}.default
   ];
+  gtk.gtk2.force = true;
   programs.nvchad = {
     enable = true;
     extraPackages = with pkgs; [
@@ -46,6 +47,9 @@
 
   xdg = {
     enable = true;
+    portal = {
+      config.common.default = "*";
+    };
   };
   home.pointerCursor = {
     enable = true;

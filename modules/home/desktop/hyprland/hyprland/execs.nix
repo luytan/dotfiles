@@ -3,6 +3,9 @@ with lib;
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
+      # Keep session env in systemd user services (soteria/polkit compatibility)
+      "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_ID"
+
       # Keyring and Auth
       "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --components=secrets"
 

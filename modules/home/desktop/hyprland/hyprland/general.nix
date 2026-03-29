@@ -1,9 +1,18 @@
-{ lib,... }:
+{ lib, osConfig, ... }:
 with lib;
+let
+  isGlaceon = (osConfig.networking.hostName or "") == "glaceon";
+in
 {
   wayland.windowManager.hyprland.settings = {
     # Monitor Configuration
-    monitor = ", preferred, auto, 1";
+    monitor = if isGlaceon then [
+      # Host-specific laptop panel tuning: scale + VRR + 10-bit output.
+      "desc:Thermotrex Corporation TL140ADXP01, 2560x1600@120, 0x0, 1.25, vrr, 1, bitdepth, 10, cm, auto"
+      ", preferred, auto, 1"
+    ] else [
+      ", preferred, auto, 1"
+    ];
 
     # General Settings
     general = {

@@ -48,10 +48,13 @@
   modules.desktop = {
     plasma = false;
     niri = {
-      enable = true;
+      enable = false;
       shell = "noctalia";
     };
-    hyprland = false;
+    hyprland = {
+      enable = true;
+      shell = "caelestia";
+    };
   };
 
   # Services

@@ -1,6 +1,6 @@
-{ osConfig, pkgs, ... }:
+{ osConfig, pkgs, lib, ... }:
 {
-  imports = lib.optionals (osConfig.modules.desktop.hyprland.shell == "caelestia" or false) [
+  imports = lib.optionals (osConfig.modules.desktop.hyprland.shell == "caelestia") [
     ./general.nix
     ./variable.nix
     ./animations.nix

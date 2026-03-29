@@ -83,7 +83,7 @@ with lib;
     "$kbWindowFullscreen" = "Super, F";
     "$kbWindowBorderedFullscreen" = "Super+Alt, F";
     "$kbToggleWindowFloating" = "Super+Alt, Space";
-    "$kbCloseWindow" = "Super, Q";
+    "$kbCloseWindow" = "Super, C";
 
     # Keybind Variables - Special Workspace Toggles
     "$kbSystemMonitor" = "Ctrl+Shift, Escape";
@@ -92,9 +92,8 @@ with lib;
     "$kbTodo" = "Super, R";
 
     # Keybind Variables - Apps
-    "$kbTerminal" = "Super, T";
+    "$kbTerminal" = "Super, C";
     "$kbBrowser" = "Super, W";
-    "$kbEditor" = "Super, C";
     "$kbFileExplorer" = "Super, E";
 
     # Keybind Variables - Misc

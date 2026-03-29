@@ -35,14 +35,13 @@ in
     };
     networking.firewall = {
       enable = true;
-      trustedInterfaces = [ "virbr0" ];
+      trustedInterfaces = lib.optionals config.modules.virtualization.kvm [ "virbr0" ];
       backend = "firewalld";
       checkReversePath = "loose";
     };
     networking.nat = {
-      enable = true;
-
-      internalInterfaces = [
+      enable = config.modules.virtualization.kvm;
+      internalInterfaces = lib.optionals config.modules.virtualization.kvm [
         "virbr0"
       ];
     };
@@ -52,6 +51,5 @@ in
       package = pkgs.firewalld-gui;
     };
     networking.nftables.enable = true;
-    services.tailscale.enable = true;
   };
 }

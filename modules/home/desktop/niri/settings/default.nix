@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./env.nix
     ./debug.nix
     ./binds.nix
     ./output.nix

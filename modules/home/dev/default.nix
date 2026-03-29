@@ -23,7 +23,6 @@ in
     ./languages
   ]
   ++ lib.optionals (!isWsl) [
- #   ./jetbrain.nix
     ./editors
   ];
 }

@@ -1,25 +1,20 @@
-{ osConfig, pkgs, lib, ... }:
+{ osConfig, pkgs, ... }:
+let
+  cfg = osConfig.modules.desktop.hyprland;
+in
 {
-  imports = lib.optionals (osConfig.modules.desktop.hyprland.shell == "caelestia") [
-    ./general.nix
-    ./variable.nix
-    ./animations.nix
-    ./decoration.nix
-    ./env.nix
-    ./execs.nix
-    ./gestures.nix
-    ./group.nix
-    ./input.nix
-    ./keybinds.nix
-    ./misc.nix
-    ./rules.nix
-    ./scrolling.nix
-    ./wsaction.nix
-  ];
+  imports =
+    if cfg.shell == "caelestia" then
+      [ ./caelestia ]
+    else if cfg.shell == "illogical" then
+      [ ./illogical ]
+    else
+      [ ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland ;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
     systemd.enable = true;
   };
 }

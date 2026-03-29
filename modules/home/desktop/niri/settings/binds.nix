@@ -1,6 +1,7 @@
-{ ... }:
+{ lib, osConfig, ... }:
 {
-  programs.niri.settings.binds = {
+  programs.niri.settings.binds =
+    {
     # Noctalia
     "Mod+Space".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
     "Mod+Alt+L".action.spawn-sh = "noctalia-shell ipc call lockScreen lock";
@@ -38,26 +39,6 @@
     };
     "XF86AudioNext" = {
       action.spawn-sh = "playerctl next";
-      allow-when-locked = true;
-    };
-
-    # Brightness key mappings for brightnessctl.
-    "XF86KbdBrightnessDown" = {
-      action.spawn = [
-        "brightnessctl"
-        "--device=asus::kbd_backlight"
-        "set"
-        "1-"
-      ];
-      allow-when-locked = true;
-    };
-    "XF86KbdBrightnessUp" = {
-      action.spawn = [
-        "brightnessctl"
-        "--device=asus::kbd_backlight"
-        "set"
-        "+1"
-      ];
       allow-when-locked = true;
     };
 
@@ -236,5 +217,26 @@
     "Ctrl+Alt+Delete".action.quit = [ ];
 
     "Mod+Shift+P".action.power-off-monitors = [ ];
-  };
+  }
+    // lib.optionalAttrs osConfig.modules.hardware.asusctl {
+      # Brightness key mappings for ASUS keyboard backlight.
+      "XF86KbdBrightnessDown" = {
+        action.spawn = [
+          "brightnessctl"
+          "--device=asus::kbd_backlight"
+          "set"
+          "1-"
+        ];
+        allow-when-locked = true;
+      };
+      "XF86KbdBrightnessUp" = {
+        action.spawn = [
+          "brightnessctl"
+          "--device=asus::kbd_backlight"
+          "set"
+          "+1"
+        ];
+        allow-when-locked = true;
+      };
+    };
 }

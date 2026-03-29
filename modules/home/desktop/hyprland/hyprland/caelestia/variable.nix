@@ -92,7 +92,7 @@ with lib;
     "$kbTodo" = "Super, R";
 
     # Keybind Variables - Apps
-    "$kbTerminal" = "Super, C";
+    "$kbTerminal" = "Super, Q";
     "$kbBrowser" = "Super, W";
     "$kbFileExplorer" = "Super, E";
 

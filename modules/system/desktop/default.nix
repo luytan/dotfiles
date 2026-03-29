@@ -65,8 +65,11 @@ in
     assertions = [
       {
         assertion =
-          ((if cfg.plasma then 1 else 0) + (if cfg.niri.enable then 1 else 0) + (if cfg.hyprland.enable then 1 else 0))
-          <= 1;
+          (
+            (if cfg.plasma then 1 else 0)
+            + (if cfg.niri.enable then 1 else 0)
+            + (if cfg.hyprland.enable then 1 else 0)
+          ) <= 1;
         message = "Enable only one desktop stack at a time: plasma, niri.enable, or hyprland.enable.";
       }
     ];

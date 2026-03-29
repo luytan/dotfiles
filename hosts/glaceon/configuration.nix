@@ -47,13 +47,13 @@
   # Desktop
   modules.desktop = {
     plasma = false;
-    niri = {
-      enable = false;
-      shell = "noctalia";
-    };
     hyprland = {
       enable = true;
       shell = "caelestia";
+    };
+    niri = {
+      enable = false;
+      shell = "noctalia";
     };
   };
 

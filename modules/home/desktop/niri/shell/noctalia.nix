@@ -22,9 +22,9 @@ in
     };
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "/home/luytan/.wall";
+        defaultWallpaper = "${config.home.homeDirectory}/.wall";
         wallpapers = {
-          "eDP-2" = "/home/luytan/.wall";
+          "eDP-2" = "${config.home.homeDirectory}/.wall";
         };
       };
     };

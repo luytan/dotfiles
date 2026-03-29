@@ -1,8 +1,5 @@
 { lib, osConfig ? {}, ... }:
 with lib;
-let
-  isSylveon = (osConfig.networking.hostName or "") == "sylveon";
-in
 {
   wayland.windowManager.hyprland.settings = {
     windowrule = [
@@ -82,7 +79,7 @@ in
     workspace = [
       "w[tv1]s[false], gapsout:$singleWindowGapsOut"
       "f[1]s[false], gapsout:$singleWindowGapsOut"
-    ] ++ optionals isSylveon [
+    ] ++ optionals (osConfig.networking.hostName == "sylveon") [
       "1, monitor:DP-2, default:true"
       "2, monitor:DP-2"
       "3, monitor:DP-2"

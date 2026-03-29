@@ -28,15 +28,17 @@ in
       adw-gtk3
       papirus-icon-theme
       qtengine
-      adw-gtk3
-      papirus-icon-theme
-      qtengine
       libsForQt5.qt5ct
       kdePackages.qt6ct
       libsForQt5.qtstyleplugin-kvantum
       qt6Packages.qtstyleplugin-kvantum
       nerd-fonts.jetbrains-mono
     ];
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
     gtk = {
       enable = true;
 
@@ -60,6 +62,11 @@ in
         gtk-application-prefer-dark-theme = true;
       };
     };
+    home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
+    qt = {
+      enable = true;
+      platformTheme.name = "qtengine";
+    };
     programs.caelestia = {
       enable = true;
       systemd = {
@@ -70,8 +77,6 @@ in
       settings = {
         # General apps configuration
         general = {
-          excludedScreens =
-            if (osConfig.networking.hostName or "") == "sylveon" then [ "^(?!DP-2$).*$" ] else [ ];
           apps = {
             terminal = [ "ghostty" ];
             audio = [ "pavucontrol" ];

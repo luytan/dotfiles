@@ -51,6 +51,7 @@
     plasma = true;
     niri = {
       enable = false;
+      shell = "noctalia";
     };
     hyprland = {
       enable = false;

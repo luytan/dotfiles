@@ -42,7 +42,7 @@
 
   # Containers
   modules.containers = {
-    docker = true;
+    docker = false;
     podman = true;
   };
 
@@ -61,7 +61,7 @@
   # Services
   modules.services = {
     lact = true;
-    tlp = true;
+    tlp = false;
   };
 
   system.stateVersion = "25.11";

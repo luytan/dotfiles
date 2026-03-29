@@ -62,6 +62,14 @@ in
   ];
 
   config = {
+    assertions = [
+      {
+        assertion =
+          ((if cfg.plasma then 1 else 0) + (if cfg.niri.enable then 1 else 0) + (if cfg.hyprland.enable then 1 else 0))
+          <= 1;
+        message = "Enable only one desktop stack at a time: plasma, niri.enable, or hyprland.enable.";
+      }
+    ];
     environment = {
       sessionVariables.NIXOS_OZONE_WL = "1";
       sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";

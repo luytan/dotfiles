@@ -4,7 +4,6 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_6_19;
     kernelParams = [
-      "video=2560x1600@120"
       "quiet"
       "splash"
       "boot.shell_on_fail"

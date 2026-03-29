@@ -9,7 +9,7 @@ let
   cfg = config.modules.desktop;
 in
 {
-  config = lib.mkIf cfg.niri {
+  config = lib.mkIf cfg.niri.enable {
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;

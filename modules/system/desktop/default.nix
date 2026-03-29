@@ -16,14 +16,41 @@ in
       description = "Enable Plasma desktop environment";
     };
     niri = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Niri compositor";
+      type = types.submodule {
+        options = {
+          enable = mkOption {
+            type = types.bool;
+            default = false;
+            description = "Enable Niri Compositor";
+          };
+          shell = mkOption {
+            type = types.enum [
+              "noctalia"
+            ];
+            default = "noctalia";
+            description = "Shell to use with Niri";
+          };
+        };
+      };
     };
     hyprland = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Hyprland compositor";
+      type = types.submodule {
+        options = {
+          enable = mkOption {
+            type = types.bool;
+            default = false;
+            description = "Enable Hyprland Compositor";
+          };
+          shell = mkOption {
+            type = types.enum [
+              "caelestia"
+              "illogical"
+            ];
+            default = "illogical";
+            description = "Shell to use with Hyprland";
+          };
+        };
+      };
     };
   };
 

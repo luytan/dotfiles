@@ -1,9 +1,9 @@
 { osConfig, lib, ... }:
 
 {
-  imports = lib.optionals (osConfig.modules.desktop.niri or false) [
+  imports = lib.optionals (osConfig.modules.desktop.niri.enable or false) [
     ./niri.nix
-    ./noctalia.nix
     ./scratchpad.nix
+    ./shell
   ];
 }

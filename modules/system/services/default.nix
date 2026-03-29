@@ -14,7 +14,7 @@ with lib;
     };
     tlp = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Enable TLP power management";
     };
     lact = mkOption {

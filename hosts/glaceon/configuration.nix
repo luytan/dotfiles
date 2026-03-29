@@ -40,7 +40,7 @@
 
   # Containers
   modules.containers = {
-    docker = true;
+    docker = false;
     podman = true;
   };
 

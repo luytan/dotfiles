@@ -37,14 +37,21 @@
 
   # Containers
   modules.containers = {
-    docker = true;
+    docker = false;
     podman = true;
   };
 
   # Desktop
   modules.desktop = {
     plasma = true;
-    niri = false;
+    niri = {
+      enable = false;
+      shell = "noctalia";
+    };
+    hyprland = {
+      enable = false;
+      shell = "illogical";
+    };
   };
 
   # Services

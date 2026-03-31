@@ -8,6 +8,13 @@
 }:
 let
   cfg = osConfig.modules.desktop;
+  material-symbols-caelestia = pkgs.material-symbols.overrideAttrs (attrs: {
+    postInstall = ''
+      ln -s "$out/share/fonts/TTF/MaterialSymbolsRounded.ttf" "$out/share/fonts/TTF/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].ttf"
+      ln -s "$out/share/fonts/TTF/MaterialSymbolsOutlined.ttf" "$out/share/fonts/TTF/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf"
+      ln -s "$out/share/fonts/TTF/MaterialSymbolsSharp.ttf" "$out/share/fonts/TTF/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].ttf"
+    '';
+  });
 in
 {
   imports = [
@@ -20,7 +27,7 @@ in
       lm_sensors
       swappy
       libqalculate
-      material-symbols
+      material-symbols-caelestia
       pavucontrol
       rubik
       thunar
@@ -212,31 +219,6 @@ in
         # Lock screen
         lock = {
           recolourLogo = false;
-        };
-
-        # Session menu
-        session = {
-          vimKeybinds = false;
-          dragThreshold = 30;
-          commands = {
-            logout = [
-              "loginctl"
-              "terminate-user"
-              ""
-            ];
-            shutdown = [
-              "systemctl"
-              "poweroff"
-            ];
-            hibernate = [
-              "systemctl"
-              "hibernate"
-            ];
-            reboot = [
-              "systemctl"
-              "reboot"
-            ];
-          };
         };
 
         # Services

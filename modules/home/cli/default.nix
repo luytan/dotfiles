@@ -19,6 +19,7 @@ in
     ./archive.nix
     ./irssi.nix
     ./direnv.nix
+    ./neovim.nix
   ];
   home.packages =
     with pkgs;

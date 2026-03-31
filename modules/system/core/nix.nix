@@ -6,7 +6,6 @@
 }:
 {
   nixpkgs.overlays = [
-    inputs.rust-overlay.overlays.default
     inputs.niri.overlays.niri
     inputs.nix-vscode-extensions.overlays.default
   ];
@@ -35,5 +34,10 @@
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
-
+  environment.systemPackages = with pkgs; [
+    nixfmt
+    nil
+    nixd
+    nixfmt-tree
+  ];
 }

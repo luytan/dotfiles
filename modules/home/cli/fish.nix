@@ -22,8 +22,8 @@ in
       zoxide init fish | source
     '';
     shellAliases = {
-      nix-rebuild = "env -u QML2_IMPORT_PATH -u QT_PLUGIN_PATH -u QT_QPA_PLATFORM_PLUGIN_PATH nh os switch -H $(hostname)";
-      nix-rebuild-boot = "env -u QML2_IMPORT_PATH -u QT_PLUGIN_PATH -u QT_QPA_PLATFORM_PLUGIN_PATH nh os boot -H $(hostname)";
+      nix-rebuild = "nh os switch -H $(hostname)";
+      nix-rebuild-boot = "nh os boot -H $(hostname)";
       nix-clean = "nix-collect-garbage -d";
       niri-low = "niri msg output 'Thermotrex Corporation TL140ADXP01 Unknown' mode 1920x1200@60.000";
       niri-high = "niri msg output 'Thermotrex Corporation TL140ADXP01 Unknown' mode 2560x1600@120.000";

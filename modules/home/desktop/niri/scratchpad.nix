@@ -1,8 +1,19 @@
-{pkgs, config, inputs, ...}:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
-  inherit (inputs.niri-scratchpad-flake.packages.${pkgs.stdenv.hostPlatform.system}) niri-scratchpad;
+  systemPackages = lib.attrByPath [ pkgs.stdenv.hostPlatform.system ] { } inputs.niri-scratchpad-flake.packages;
+  niriScratchpadPackage =
+    if systemPackages ? default && lib.isDerivation systemPackages.default then
+      systemPackages.default
+    else if systemPackages ? niri-scratchpad && lib.isDerivation systemPackages.niri-scratchpad then
+      systemPackages.niri-scratchpad
+    else
+      null;
 in
 {
-  home.packages = [ niri-scratchpad ];
+  home.packages = lib.optionals (niriScratchpadPackage != null) [ niriScratchpadPackage ];
 }
-

@@ -218,7 +218,7 @@
 
     "Mod+Shift+P".action.power-off-monitors = [ ];
   }
-    // lib.optionalAttrs osConfig.modules.hardware.asusctl {
+    // lib.optionalAttrs osConfig.modules.hardware.platform.asusctl {
       # Brightness key mappings for ASUS keyboard backlight.
       "XF86KbdBrightnessDown" = {
         action.spawn = [

@@ -10,9 +10,9 @@ let
   cfg = osConfig.modules.desktop;
   material-symbols-caelestia = pkgs.material-symbols.overrideAttrs (attrs: {
     postInstall = ''
-      ln -s "$out/share/fonts/TTF/MaterialSymbolsRounded.ttf" "$out/share/fonts/TTF/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].ttf"
-      ln -s "$out/share/fonts/TTF/MaterialSymbolsOutlined.ttf" "$out/share/fonts/TTF/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf"
-      ln -s "$out/share/fonts/TTF/MaterialSymbolsSharp.ttf" "$out/share/fonts/TTF/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].ttf"
+      ln -sf "$out/share/fonts/TTF/MaterialSymbolsRounded.ttf" "$out/share/fonts/TTF/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].ttf"
+      ln -sf "$out/share/fonts/TTF/MaterialSymbolsOutlined.ttf" "$out/share/fonts/TTF/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf"
+      ln -sf "$out/share/fonts/TTF/MaterialSymbolsSharp.ttf" "$out/share/fonts/TTF/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].ttf"
     '';
   });
 in
@@ -79,13 +79,12 @@ in
       systemd = {
         enable = true;
         target = "hyprland-session.target";
-        #environment = [ "QSG_RENDER_LOOP=basic" ];
       };
       settings = {
         # General apps configuration
         general = {
           apps = {
-            terminal = [ "ghostty" ];
+            terminal = [ "alacritty" ];
             audio = [ "pavucontrol" ];
             explorer = [ "thunar" ];
           };
@@ -209,9 +208,9 @@ in
 
         # Notification settings
         notifs = {
-          expire = false;
+          expire = true;
           defaultExpireTimeout = 5000;
-          actionOnClick = false;
+          actionOnClick = true;
           clearThreshold = 0.3;
           expandThreshold = 20;
         };
@@ -221,6 +220,11 @@ in
           recolourLogo = false;
         };
 
+        # Idle
+        idle = {
+          lockBeforeSleep = false;
+          inhibitWhenAudio = true;
+        };
         # Services
         services = {
           audioIncrement = 0.1;
@@ -228,6 +232,7 @@ in
           gpuType = "";
           weatherLocation = "";
           useFahrenheit = false;
+          useFahrenheitPerformance = false;
           useTwelveHourClock = false;
           smartScheme = true;
           visualiserBars = 45;

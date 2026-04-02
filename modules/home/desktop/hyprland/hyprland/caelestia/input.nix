@@ -4,7 +4,8 @@ with lib;
   wayland.windowManager.hyprland.settings = {
     # Input Settings
     input = {
-      kb_layout = "us";
+      kb_layout = "fr";
+      kb_variant = "us";
       numlock_by_default = true;
       repeat_delay = 250;
       repeat_rate = 35;

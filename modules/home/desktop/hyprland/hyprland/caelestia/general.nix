@@ -37,4 +37,41 @@ with lib;
       smart_resizing = true;
     };
   };
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        #        ignore_dbus_inhibit = true;
+        lock_cmd = "caelestia-shell ipc --any-display call lock lock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        inhibit_sleep = 1;
+      };
+      listener = [
+        {
+          timeout = 150;
+          on-timeout = "brightnessctl -s set 10";
+          on-resume = "brightnessctl -r";
+        }
+        {
+          timeout = 150;
+          on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
+          on-resume = "brightnessctl -rd asus::kbd_backlight";
+        }
+        {
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 330;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
 }

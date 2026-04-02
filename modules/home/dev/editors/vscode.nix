@@ -21,6 +21,7 @@
       redhat.vscode-yaml
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
+      mkhl.direnv
     ];
     profiles.default.userSettings = {
       "workbench.colorTheme" = "Tokyo Night";

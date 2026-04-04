@@ -6,7 +6,7 @@ with lib;
     "$terminal" = "ghostty";
     "$browser" = "zen-beta";
     "$editor" = "vim";
-    "$fileExplorer" = "dolphin";
+    "$fileExplorer" = "thunar";
 
     # Cursor
     "$cursorTheme" = "${config.home.pointerCursor.name}";

@@ -29,13 +29,26 @@ in
       xdg-terminal-exec
       playerctl
       gcr
+      kdePackages.ark
     ];
+    # Thunar
+    programs.thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+
+    programs.xfconf.enable = true;
+    services.gvfs.enable = true;
+    services.tumbler.enable = true;
+    # Gnome keyring
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.hyprland.enableGnomeKeyring = true;
+    # UWSM Var
     environment = {
       sessionVariables.APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
-      sessionVariables.QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      sessionVariables.QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
     fonts.packages = with pkgs; [
       rubik

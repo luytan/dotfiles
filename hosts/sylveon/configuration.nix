@@ -48,14 +48,14 @@
 
   # Desktop
   modules.desktop = {
-    plasma = true;
+    plasma = false;
     niri = {
       enable = false;
       shell = "noctalia";
     };
     hyprland = {
-      enable = false;
-      shell = "illogical";
+      enable = true;
+      shell = "caelestia";
     };
   };
 
@@ -63,6 +63,11 @@
   modules.services = {
     lact = true;
     tlp = false;
+  };
+  services.power-profiles-daemon.enable = true;
+
+  boot = {
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
   };
 
   system.stateVersion = "25.11";

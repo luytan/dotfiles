@@ -8,6 +8,11 @@
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
     inputs.nix-vscode-extensions.overlays.default
+    inputs.nix-cachyos-kernel.overlays.pinned
+    (final: prev: {
+      material-symbols =
+        inputs.nixpkgs-material-symbols.legacyPackages.${prev.system}.material-symbols;
+    })
   ];
   nix.settings.allowed-users = [ "@wheel" ];
   nix.settings.trusted-users = [
@@ -24,14 +29,14 @@
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://lanzaboote.cachix.org"
-      "https://vicinae.cachix.org"
       "https://hyprland.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
-      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
   environment.systemPackages = with pkgs; [

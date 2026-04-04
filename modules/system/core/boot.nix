@@ -2,7 +2,7 @@
 {
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_19;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_6_19;
     kernelParams = [
       "quiet"
       "splash"
@@ -10,6 +10,7 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
+    kernelModules = [ "ntsync" ];
     consoleLogLevel = 3;
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;

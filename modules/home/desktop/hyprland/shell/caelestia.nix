@@ -43,26 +43,24 @@ in
       enable = true;
 
       theme = {
-        name = "adw-gtk3-dark";
-        package = pkgs.adw-gtk3;
+        name = "Tokyonight-Dark";
+        package = pkgs.tokyonight-gtk-theme;
       };
 
-      gtk4.theme = config.gtk.theme;
-
-      #iconTheme = {
-      #  name = "Papirus-Dark";
-      #  package = pkgs.papirus-icon-theme;
-      #};
-
-      gtk3.extraConfig = {
-        gtk-application-prefer-dark-theme = true;
+      gtk4 = {
+        theme = config.gtk.theme;
+        extraConfig = {
+          gtk-application-prefer-dark-theme = true;
+        };
       };
-
-      gtk4.extraConfig = {
-        gtk-application-prefer-dark-theme = true;
+      gtk3 = {
+        theme = config.gtk.theme;
+        extraConfig = {
+          gtk-application-prefer-dark-theme = true;
+        };
       };
     };
-    home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
+    home.sessionVariables.GTK_THEME = "Tokyonight-Dark";
     qt = {
       enable = true;
       platformTheme.name = "qtengine";

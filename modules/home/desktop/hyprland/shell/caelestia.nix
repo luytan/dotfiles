@@ -8,13 +8,6 @@
 }:
 let
   cfg = osConfig.modules.desktop;
-  material-symbols-caelestia = pkgs.material-symbols.overrideAttrs (attrs: {
-    postInstall = ''
-      ln -sf "$out/share/fonts/TTF/MaterialSymbolsRounded.ttf" "$out/share/fonts/TTF/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].ttf"
-      ln -sf "$out/share/fonts/TTF/MaterialSymbolsOutlined.ttf" "$out/share/fonts/TTF/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf"
-      ln -sf "$out/share/fonts/TTF/MaterialSymbolsSharp.ttf" "$out/share/fonts/TTF/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].ttf"
-    '';
-  });
 in
 {
   imports = [
@@ -27,7 +20,7 @@ in
       lm_sensors
       swappy
       libqalculate
-      material-symbols-caelestia
+      material-symbols
       pavucontrol
       rubik
       thunar

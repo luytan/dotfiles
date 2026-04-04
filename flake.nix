@@ -80,6 +80,8 @@
       url = "github:luytan/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    nixpkgs-material-symbols.url = "github:luytan/nixpkgs?ref=fix-material-symbols";
   };
 
   outputs =

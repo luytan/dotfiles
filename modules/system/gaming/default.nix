@@ -31,6 +31,11 @@ in
       environment.systemPackages = with pkgs; [
         mangohud
       ];
+      environment = {
+        sessionVariables.PROTON_ENABLE_WAYLAND = 1;
+        sessionVariables.PROTON_USE_NTSYNC = 1;
+        sessionVariables.PROTON_FSR4_UPGRADE = 1;
+      };
     })
     (mkIf cfg.gamescope {
       programs.gamescope = {

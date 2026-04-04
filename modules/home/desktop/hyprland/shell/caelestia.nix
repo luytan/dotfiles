@@ -30,6 +30,9 @@ in
       qtengine
       libsForQt5.qt5ct
       kdePackages.qt6ct
+      kdePackages.breeze
+      kdePackages.breeze.qt5
+      kdePackages.breeze-icons
       libsForQt5.qtstyleplugin-kvantum
       qt6Packages.qtstyleplugin-kvantum
       nerd-fonts.jetbrains-mono
@@ -38,15 +41,17 @@ in
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = ":";
+      };
     };
+    # GTK
     gtk = {
       enable = true;
-
       theme = {
         name = "Tokyonight-Dark";
         package = pkgs.tokyonight-gtk-theme;
       };
-
       gtk4 = {
         theme = config.gtk.theme;
         extraConfig = {
@@ -61,10 +66,14 @@ in
       };
     };
     home.sessionVariables.GTK_THEME = "Tokyonight-Dark";
-    qt = {
-      enable = true;
-      platformTheme.name = "qtengine";
+    # QT
+    home.sessionVariables = {
+      QT_QPA_PLATFORMTHEME = "qtengine";
+      QT_STYLE_OVERRIDE = "breeze";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
+    # CAELESTIA
     programs.caelestia = {
       enable = true;
       systemd = {
@@ -220,7 +229,7 @@ in
         services = {
           audioIncrement = 0.1;
           defaultPlayer = "zen-beta";
-          gpuType = "";
+          showLyrics = true;
           weatherLocation = "";
           useFahrenheit = false;
           useFahrenheitPerformance = false;
@@ -234,7 +243,7 @@ in
         enable = true;
         settings = {
           theme = {
-            enableGtk = true;
+            enableGtk = false;
           };
         };
       };

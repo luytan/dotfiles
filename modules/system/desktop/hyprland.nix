@@ -28,8 +28,10 @@ in
       app2unit
       xdg-terminal-exec
       playerctl
-      gnome-keyring
+      gcr
     ];
+    services.gnome.gnome-keyring.enable = true;
+    security.pam.services.hyprland.enableGnomeKeyring = true;
     environment = {
       sessionVariables.APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
       sessionVariables.QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";

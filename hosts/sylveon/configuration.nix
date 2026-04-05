@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -67,7 +68,16 @@
   services.power-profiles-daemon.enable = true;
 
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+    kernelPackages =
+      let
+        customKernel = pkgs.cachyosKernels.linux-cachyos-latest-lto-zen4.override {
+          cpusched = "bore";
+        };
+
+        helpers = pkgs.callPackage "${inputs.nix-cachyos-kernel.outPath}/helpers.nix" { };
+
+      in
+      helpers.kernelModuleLLVMOverride (pkgs.linuxKernel.packagesFor customKernel);
   };
 
   system.stateVersion = "25.11";

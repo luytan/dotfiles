@@ -76,6 +76,9 @@ in
     # CAELESTIA
     programs.caelestia = {
       enable = true;
+      package = inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli.override {
+        material-symbols = pkgs.material-symbols;
+      };
       systemd = {
         enable = true;
         target = "hyprland-session.target";

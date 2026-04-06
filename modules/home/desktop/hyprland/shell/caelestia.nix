@@ -40,6 +40,8 @@ in
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
+        gtk-theme = "Tokyonight-Dark";
+        icon-theme = "Papirus-Dark";
       };
       "org/gnome/desktop/wm/preferences" = {
         button-layout = ":";
@@ -51,6 +53,10 @@ in
       theme = {
         name = "Tokyonight-Dark";
         package = pkgs.tokyonight-gtk-theme;
+      };
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
       };
       gtk4 = {
         theme = config.gtk.theme;

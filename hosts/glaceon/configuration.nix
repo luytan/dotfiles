@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ../../modules/system
-    inputs.cardwire.nixosModule.x86_64-linux
+    inputs.cardwire.nixosModules.default
   ];
 
   # Hostname

@@ -31,6 +31,7 @@ in
       cls = "clear";
       cat = "bat";
       tree = "eza --tree --level=3";
+      tmpdir = "cd $(mktemp --directory)";
     };
     plugins = [
       {

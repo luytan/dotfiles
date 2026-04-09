@@ -7,10 +7,6 @@
   programs.firejail.enable = true;
   services.fwupd.enable = true;
   programs.dconf.enable = true;
-
-  # OOM Handling
-  services.earlyoom.enable = true;
-
   # Yubikey
   services.pcscd.enable = true;
 }

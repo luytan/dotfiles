@@ -2,8 +2,8 @@
 {
   zramSwap = {
     enable = true;
-    algorithm = "zstd";
-    memoryPercent = 300;
+    algorithm = "lzo-rle";
+    memoryPercent = 100;
   };
   boot.kernel.sysctl = {
     "vm.swappiness" = 180;

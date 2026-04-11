@@ -21,5 +21,7 @@
     ntfs3g
     xlsclients
     git
+    age
+    sops
   ];
 }

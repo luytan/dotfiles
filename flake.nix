@@ -82,6 +82,10 @@
     };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nixpkgs-material-symbols.url = "github:luytan/nixpkgs?ref=fix-material-symbols";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -92,6 +96,7 @@
       lanzaboote,
       disko,
       niri,
+      sops-nix,
       ...
     }:
     let
@@ -112,6 +117,7 @@
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             niri.nixosModules.niri
+            sops-nix.nixosModules.sops
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

@@ -1,0 +1,7 @@
+keys:
+  - &sylveon age17ltyaqe2p43vx3c9rvnn9v4tsj4h7cgypfvk8f2km3hm3zvehe4s554v9v
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *sylveon

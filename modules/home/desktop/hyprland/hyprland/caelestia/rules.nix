@@ -107,8 +107,6 @@ with lib;
       # Caelestia Shell
       "no_anim true, match:namespace caelestia-(border-exclusion|area-picker)"
       "animation fade, match:namespace caelestia-(drawers|background)"
-      "blur true, match:namespace caelestia-drawers"
-      "ignore_alpha 0.57, match:namespace caelestia-drawers"
     ];
   };
 }

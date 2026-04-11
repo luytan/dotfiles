@@ -13,6 +13,8 @@ in
     jdk
     jq
     lstr
+    act
+    opencode
   ];
   imports = [
   ]

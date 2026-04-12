@@ -100,12 +100,12 @@ in
         };
         bar = {
           persistent = true;
-          showOnHover = true;
+          showOnHover = false;
           status = {
             showBattery = true;
             showBluetooth = true;
             showNetwork = true;
-            showAudio = false;
+            showAudio = true;
             showKbLayout = false;
           };
           workspaces = {
@@ -123,8 +123,8 @@ in
             showIcon = true;
           };
           tray = {
-            background = false;
-            recolour = false;
+            background = true;
+            recolour = true;
           };
         };
 
@@ -139,11 +139,11 @@ in
           specialPrefix = "@";
           showOnHover = false;
           useFuzzy = {
-            apps = false;
-            actions = false;
-            schemes = false;
-            variants = false;
-            wallpapers = false;
+            apps = true;
+            actions = true;
+            schemes = true;
+            variants = true;
+            wallpapers = true;
           };
         };
 
@@ -226,7 +226,7 @@ in
 
         # Lock screen
         lock = {
-          recolourLogo = false;
+          recolourLogo = true;
         };
 
         # Idle

@@ -11,8 +11,8 @@
       pkief.material-icon-theme
       jnoortheen.nix-ide
       vue.volar
-      foam.foam-vscode
       ms-vscode.cpptools
+      xaver.clang-format
       #vscodevim.vim
       ms-azuretools.vscode-containers
       ms-python.python
@@ -22,9 +22,10 @@
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
       mkhl.direnv
+      gruntfuggly.todo-tree
     ];
     profiles.default.userSettings = {
-      "workbench.colorTheme" = "Tokyo Night";
+      "workbench.colorTheme" = "Andromeda Night Italic";
       "workbench.iconTheme" = "material-icon-theme";
       "update.enableWindowsBackgroundUpdates" = false;
       "update.mode" = "manual";

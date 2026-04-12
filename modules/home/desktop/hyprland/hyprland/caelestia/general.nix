@@ -41,11 +41,9 @@ with lib;
     enable = true;
     settings = {
       general = {
-        #        ignore_dbus_inhibit = true;
         lock_cmd = "caelestia-shell ipc --any-display call lock lock";
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
-        inhibit_sleep = 1;
       };
       listener = [
         {

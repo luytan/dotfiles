@@ -30,6 +30,7 @@ in
       playerctl
       gcr
       kdePackages.ark
+      ddcutil
     ];
     # Thunar
     programs.thunar = {

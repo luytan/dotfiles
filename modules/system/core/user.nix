@@ -10,6 +10,7 @@
         "wheel"
         "dialout"
         "libvirtd"
+        "i2c"
       ];
     };
   };

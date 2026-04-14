@@ -16,7 +16,6 @@ in
   config = lib.mkIf (cfg.hyprland.enable && cfg.hyprland.shell == "caelestia") {
     home.packages = with pkgs; [
       brightnessctl
-      ddcutil
       lm_sensors
       swappy
       libqalculate

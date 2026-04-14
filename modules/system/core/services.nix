@@ -9,4 +9,6 @@
   programs.dconf.enable = true;
   # Yubikey
   services.pcscd.enable = true;
+
+  hardware.i2c.enable = true;
 }

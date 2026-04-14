@@ -24,6 +24,7 @@ in
       kdePackages.kio
       kdePackages.kio-fuse
       kdePackages.kio-extras
+      ddcutil
     ];
     xdg.portal = {
       enable = true;

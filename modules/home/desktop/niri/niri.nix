@@ -11,7 +11,6 @@
   home.packages = with pkgs; [
     brightnessctl
     imagemagick
-    ddcutil
     cliphist
     cava
     python3

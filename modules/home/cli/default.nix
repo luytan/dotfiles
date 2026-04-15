@@ -24,6 +24,7 @@ in
   home.packages =
     with pkgs;
     [
+      fd
       tldr
       bat
       tldr

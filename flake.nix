@@ -86,6 +86,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rusic.url = "github:temidaradev/rusic";
   };
 
   outputs =

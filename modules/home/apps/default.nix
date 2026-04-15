@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     obsidian
@@ -9,6 +8,7 @@
     kdePackages.filelight
     brave
     vlc
+    inputs.rusic.packages.${system}.default
   ];
   imports = [
     ./alacritty.nix

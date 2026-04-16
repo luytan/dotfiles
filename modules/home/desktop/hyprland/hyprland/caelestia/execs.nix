@@ -20,7 +20,6 @@ with lib;
       # Media
       "mpris-proxy"
 
-
     ];
 
     # Commands that run on reload too

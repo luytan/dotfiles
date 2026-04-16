@@ -1,4 +1,8 @@
-{ lib, osConfig ? {}, ... }:
+{
+  lib,
+  osConfig ? { },
+  ...
+}:
 with lib;
 {
   wayland.windowManager.hyprland.settings = {
@@ -79,7 +83,8 @@ with lib;
     workspace = [
       "w[tv1]s[false], gapsout:$singleWindowGapsOut"
       "f[1]s[false], gapsout:$singleWindowGapsOut"
-    ] ++ optionals (osConfig.networking.hostName == "sylveon") [
+    ]
+    ++ optionals (osConfig.networking.hostName == "sylveon") [
       "1, monitor:DP-2, default:true"
       "2, monitor:DP-2"
       "3, monitor:DP-2"

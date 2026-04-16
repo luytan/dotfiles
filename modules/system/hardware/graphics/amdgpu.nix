@@ -35,8 +35,8 @@ in
       vulkan-tools
     ];
     users.users.${user}.extraGroups = [
-    "video"
-    "render"
+      "video"
+      "render"
     ];
   };
 }

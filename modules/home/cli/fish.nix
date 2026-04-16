@@ -4,8 +4,6 @@
     enable = true;
     interactiveShellInit = ''
       zoxide init fish | source
-      direnv hook fish | source
-      starship init fish | source
     '';
     shellAliases = {
       nix-rebuild = "nh os switch -H $(hostname)";
@@ -24,8 +22,11 @@
       }
     ];
   };
+  programs.starship = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     grc
-    starship
   ];
 }

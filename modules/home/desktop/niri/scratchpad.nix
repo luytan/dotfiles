@@ -5,7 +5,9 @@
   ...
 }:
 let
-  systemPackages = lib.attrByPath [ pkgs.stdenv.hostPlatform.system ] { } inputs.niri-scratchpad-flake.packages;
+  systemPackages = lib.attrByPath [
+    pkgs.stdenv.hostPlatform.system
+  ] { } inputs.niri-scratchpad-flake.packages;
   niriScratchpadPackage =
     if systemPackages ? default && lib.isDerivation systemPackages.default then
       systemPackages.default

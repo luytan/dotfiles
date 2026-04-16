@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [./emulators.nix];
+  imports = [ ./emulators.nix ];
   home.packages = with pkgs; [
     mangohud
     goverlay

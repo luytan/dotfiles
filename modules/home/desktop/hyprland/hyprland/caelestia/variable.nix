@@ -1,4 +1,9 @@
-{ lib,config,pkgs,... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 with lib;
 {
   wayland.windowManager.hyprland.settings = {

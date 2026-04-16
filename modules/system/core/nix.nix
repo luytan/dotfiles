@@ -10,22 +10,19 @@
     inputs.nix-vscode-extensions.overlays.default
     inputs.nix-cachyos-kernel.overlays.pinned
     (final: prev: {
-      material-symbols =
-        inputs.nixpkgs-material-symbols.legacyPackages.${prev.system}.material-symbols;
+      material-symbols = inputs.nixpkgs-material-symbols.legacyPackages.${prev.system}.material-symbols;
     })
-  ];
-  nix.settings.allowed-users = [ "@wheel" ];
-  nix.settings.trusted-users = [
-    "${user}"
-    "@wheel"
-  ];
-  nix.settings.auto-optimise-store = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
   ];
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
+    warn-dirty = false;
+    connect-timeout = 5;
+    fallback = true;
+    auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://lanzaboote.cachix.org"

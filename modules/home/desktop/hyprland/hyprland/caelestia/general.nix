@@ -38,7 +38,7 @@ with lib;
     };
   };
   services.hypridle = {
-    enable = true;
+    enable = false;
     settings = {
       general = {
         lock_cmd = "caelestia-shell ipc --any-display call lock lock";

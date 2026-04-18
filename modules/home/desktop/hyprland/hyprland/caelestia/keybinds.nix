@@ -25,6 +25,7 @@ with lib;
     bindl = $kbClearNotifs, global, caelestia:clearNotifs
     bind = $kbShowPanels, global, caelestia:showall
     bind = $kbLock, global, caelestia:lock
+    bindl=,switch:Lid Switch, exec, caelestia-shell ipc --any-display call lock lock
 
     # Restore lock
     bindl = $kbRestoreLock, exec, caelestia shell -d

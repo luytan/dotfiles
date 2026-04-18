@@ -14,6 +14,20 @@ in
     inputs.caelestia-shell.homeManagerModules.default
   ];
   config = lib.mkIf (cfg.hyprland.enable && cfg.hyprland.shell == "caelestia") {
+    systemd.user.services.lock-before-sleep = {
+      Unit = {
+        Description = "Lock screen before sleep";
+        Before = [ "sleep.target" ];
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.procps}/bin/pgrep -x caelestia-shell > /dev/null && ${config.programs.caelestia.package}/bin/caelestia-shell ipc --any-display call lock lock";
+        TimeoutStartSec = "5s";
+      };
+      Install = {
+        WantedBy = [ "sleep.target" ];
+      };
+    };
     home.packages = with pkgs; [
       brightnessctl
       lm_sensors
@@ -230,8 +244,15 @@ in
 
         # Idle
         idle = {
-          lockBeforeSleep = false;
+          enabled = true;
+          lockBeforeSleep = true;
           inhibitWhenAudio = true;
+          timeouts = [
+            {
+              timeout = 300;
+              idleAction = "lock";
+            }
+          ];
         };
         # Services
         services = {
